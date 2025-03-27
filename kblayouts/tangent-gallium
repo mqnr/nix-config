@@ -28,6 +28,8 @@ xkb_symbols "tangent-gallium" {
     key <AD08> { [ o, O, oacute, Oacute ] };
     key <AD09> { [ u, U, uacute, Uacute ] };
     key <AD10> { [ comma, less, lessthanequal ] };
+    key <AD11> { [ bracketleft, braceleft, guillemotleft, leftdoublequotemark ] };
+    key <AD12> { [ bracketright, braceright, guillemotright, rightdoublequotemark ] };
 
     key <AC01> { [ n, N, ntilde, Ntilde ] };
     key <AC02> { [ r, R, registered, trademark ] };
