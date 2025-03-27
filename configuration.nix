@@ -39,6 +39,11 @@
       languages = [ "eng" "spa" ];
       symbolsFile = ./kblayouts/tangent-qwerty;
     };
+    tangent-gallium = {
+      description = "Tangent Gallium layout";
+      languages = [ "eng" "spa" ];
+      symbolsFile = ./kblayouts/tangent-gallium;
+    };
   };
 
   # Enable CUPS to print documents

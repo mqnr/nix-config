@@ -224,7 +224,7 @@ in
       # systemctl --user restart gammastep
     '';
     "labwc/environment".text = ''
-      XKB_DEFAULT_LAYOUT=tangent-qwerty
+      XKB_DEFAULT_LAYOUT=tangent-gallium
     '';
   };
 
