@@ -1,0 +1,62 @@
+// Tangent QWERTY - English International keyboard layout
+
+default partial alphanumeric_keys
+xkb_symbols "tangent-qwerty" {
+    name[Group1] = "English (Tangent QWERTY)";
+
+    key <TLDE> { [ grave, asciitilde, dead_grave, dead_tilde ] };
+    key <AE01> { [ 1, exclam, exclamdown, onesuperior ] };
+    key <AE02> { [ 2, at, twosuperior, registered ] };
+    key <AE03> { [ 3, numbersign, threesuperior, sterling ] };
+    key <AE04> { [ 4, dollar, euro, cent ] };
+    key <AE05> { [ 5, percent, permille, infinity ] };
+    key <AE06> { [ 6, asciicircum, dead_circumflex, onequarter ] };
+    key <AE07> { [ 7, ampersand, approxeq, onehalf ] };
+    key <AE08> { [ 8, asterisk, multiply, threequarters ] };
+    key <AE09> { [ 9, parenleft, leftsinglequotemark, leftdoublequotemark ] };
+    key <AE10> { [ 0, parenright, rightsinglequotemark, rightdoublequotemark ] };
+    key <AE11> { [ minus, underscore, endash, emdash ] };
+    key <AE12> { [ equal, plus, notequal, plusminus ] };
+
+    key <AD01> { [ q, Q, aring, Aring ] };
+    key <AD02> { [ w, W, oslash, Oslash ] };
+    key <AD03> { [ e, E, eacute, Eacute ] };
+    key <AD04> { [ r, R, registered, trademark ] };
+    key <AD05> { [ t, T, thorn, THORN ] };
+    key <AD06> { [ y, Y, yen, currency ] };
+    key <AD07> { [ u, U, uacute, Uacute ] };
+    key <AD08> { [ i, I, iacute, Iacute ] };
+    key <AD09> { [ o, O, oacute, Oacute ] };
+    key <AD10> { [ p, P, Greek_pi, Greek_PI ] };
+    key <AD11> { [ bracketleft, braceleft, guillemotleft, leftdoublequotemark ] };
+    key <AD12> { [ bracketright, braceright, guillemotright, rightdoublequotemark ] };
+
+    key <AC01> { [ a, A, aacute, Aacute ] };
+    key <AC02> { [ s, S, ssharp, section ] };
+    key <AC03> { [ d, D, eth, ETH ] };
+    key <AC04> { [ f, F, function, integral ] };
+    key <AC05> { [ g, G, Greek_gamma, Greek_GAMMA ] };
+    key <AC06> { [ h, H, hacek, Greek_theta ] };
+    key <AC07> { [ j, J, nabla, partialderivative ] };
+    key <AC08> { [ k, K, oe, OE ] };
+    key <AC09> { [ l, L, Greek_lambda, Greek_LAMBDA ] };
+    key <AC10> { [ semicolon, colon, paragraph, bullet ] };
+    key <AC11> { [ apostrophe, quotedbl, dead_acute, dead_diaeresis ] };
+
+    key <AB01> { [ z, Z, ae, AE ] };
+    key <AB02> { [ x, X, multiply, division ] };
+    key <AB03> { [ c, C, ccedilla, Ccedilla ] };
+    key <AB04> { [ v, V, copyright, radical ] };
+    key <AB05> { [ b, B, Greek_beta, Greek_BETA ] };
+    key <AB06> { [ n, N, ntilde, Ntilde ] };
+    key <AB07> { [ m, M, Greek_mu, Greek_MU ] };
+    key <AB08> { [ comma, less, lessthanequal ] };
+    key <AB09> { [ period, greater, greaterthanequal, ellipsis ] };
+    key <AB10> { [ slash, question, questiondown, interrobang ] };
+
+    key <BKSL> { [ backslash, bar, notsign, brokenbar ] };
+    key <SPCE> { [ space, space, nobreakspace, nobreakspace ] };
+    key <LSGT> { [ less, greater, guillemotleft, guillemotright ] };
+
+    include "level3(ralt_switch)"
+};

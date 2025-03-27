@@ -32,6 +32,15 @@
   # Enable X11
   services.xserver.enable = true;
 
+  # Define custom layouts
+  services.xserver.xkb.extraLayouts = {
+    tangent-qwerty = {
+      description = "Tangent QWERTY layout";
+      languages = [ "eng" "spa" ];
+      symbolsFile = ./kblayouts/tangent-qwerty;
+    };
+  };
+
   # Enable CUPS to print documents
   services.printing.enable = true;
 

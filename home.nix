@@ -223,6 +223,9 @@ in
       # I'm not sure why I have to do this manually
       # systemctl --user restart gammastep
     '';
+    "labwc/environment".text = ''
+      XKB_DEFAULT_LAYOUT=tangent-qwerty
+    '';
   };
 
   home.stateVersion = "24.11";
