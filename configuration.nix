@@ -5,6 +5,7 @@
     [
       ./hardware-configuration.nix
       ./location-module.nix
+      ./keyd.nix
     ] ++ lib.optional (builtins.pathExists ./private/location.nix) ./private/location.nix;
 
   # Use the systemd-boot EFI boot loader.
