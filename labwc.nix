@@ -24,6 +24,12 @@
           <keybind key="W-Tab">
             <action name="ToggleMaximize" />
           </keybind>
+          <keybind key="W-x">
+            <action name="Iconify" />
+          </keybind>
+          <keybind key="W-S-Tab">
+            <action name="Iconify" />
+          </keybind>
           <keybind key="A-F3">
             <action name="Execute" command="fuzzel" />
           </keybind>
