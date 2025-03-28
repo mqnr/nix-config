@@ -47,7 +47,7 @@
       waybar >/dev/null 2>&1 &
       mako >/dev/null 2>&1 &
       # I'm not sure why I have to do this manually
-      # systemctl --user restart gammastep
+      systemctl --user restart gammastep
     '';
     "labwc/environment".text = ''
       XKB_DEFAULT_LAYOUT=tangent-gallium
