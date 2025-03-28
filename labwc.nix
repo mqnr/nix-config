@@ -24,6 +24,9 @@
           <keybind key="W-Tab">
             <action name="ToggleMaximize" />
           </keybind>
+          <keybind key="A-F3">
+            <action name="Execute" command="fuzzel" />
+          </keybind>
           <keybind key="W-t">
             <action name="Execute" command="fuzzel" />
           </keybind>
