@@ -8,10 +8,26 @@
 
         <keyboard>
           <default />
+          <!-- Use a different terminal emulator -->
           <keybind key="W-Return">
             <action name="Execute" command="foot" />
           </keybind>
-          <keybind key="A-F3">
+          <keybind key="W-q"> <!-- Quit -->
+            <action name="Close" />
+          </keybind>
+          <keybind key="W-b"> <!-- oBliterate -->
+            <action name="Close" />
+          </keybind>
+          <keybind key="W-n">
+            <action name="ToggleMaximize" />
+          </keybind>
+          <keybind key="W-Tab">
+            <action name="ToggleMaximize" />
+          </keybind>
+          <keybind key="W-t">
+            <action name="Execute" command="fuzzel" />
+          </keybind>
+          <keybind key="W-s">
             <action name="Execute" command="fuzzel" />
           </keybind>
           <keybind key="XF86_AudioLowerVolume">
@@ -23,12 +39,17 @@
           <keybind key="XF86_AudioMute">
             <action name="Execute" command="wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle" />
           </keybind>
+          <keybind key="XF86_AudioMicMute">
+            <action name="Execute" command="wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle" />
+          </keybind>
           <keybind key="XF86_MonBrightnessUp">
             <action name="Execute" command="brightnessctl set +5%" />
           </keybind>
           <keybind key="XF86_MonBrightnessDown">
             <action name="Execute" command="brightnessctl set 5%-" />
           </keybind>
+          <!-- Remove default keybinds -->
+          <keybind key="W-a" />
         </keyboard>
 
         <libinput>
