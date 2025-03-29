@@ -39,6 +39,9 @@
           <keybind key="W-s">
             <action name="Execute" command="fuzzel" />
           </keybind>
+          <keybind key="W-f">
+            <action name="ToggleFullscreen" />
+          </keybind>
           <keybind key="XF86_AudioLowerVolume">
             <action name="Execute" command="wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-" />
           </keybind>
