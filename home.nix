@@ -7,7 +7,7 @@ in
 {
   imports = [
     ./location-module.nix
-    ./labwc.nix
+    ./labwc/labwc.nix
   ] ++ lib.optional (builtins.pathExists ./private/location.nix) ./private/location.nix
     ++ lib.optional (builtins.pathExists ./private/ssh.nix) ./private/ssh.nix;
 
