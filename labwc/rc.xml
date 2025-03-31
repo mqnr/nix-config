@@ -1,6 +1,15 @@
 <?xml version="1.0" ?>
 <labwc_config>
 
+  <theme>
+    <name>Arc-Clone</name>
+    <dropShadows>yes</dropShadows>
+    <font>
+      <name>Aporetic Sans</name>
+      <size>12</size>
+    </font>
+  </theme>
+
   <keyboard>
     <default />
     <!-- Use a different terminal emulator -->
