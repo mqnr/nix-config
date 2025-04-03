@@ -17,28 +17,28 @@
 
   outputs = { self, nixpkgs, home-manager, emacs-overlay, ... }@inputs:
     let
-      system = "x86_64-linux";
-      hostname = "tigris";
       username = "martin";
     in {
-      nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./configuration.nix
+      nixosConfigurations = {
+        tigris = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./hosts/tigris
 
-          ({ config, pkgs, ... }: {
-            nixpkgs.overlays = [ emacs-overlay.overlays.default ];
-          })
+            ({ config, pkgs, ... }: {
+              nixpkgs.overlays = [ emacs-overlay.overlays.default ];
+            })
 
-          home-manager.nixosModules.home-manager {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.${username} = import ./home.nix;
-            };
-          }
-        ];
+            home-manager.nixosModules.home-manager {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.${username} = import ./home;
+              };
+            }
+          ];
+        };
       };
     };
 }
