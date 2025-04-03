@@ -10,6 +10,7 @@
     ./fish.nix
     ./foot.nix
     ./mako.nix
+    ./cursor.nix
     ./direnv.nix
     ./kanshi.nix
     ./waybar.nix
