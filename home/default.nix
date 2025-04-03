@@ -11,6 +11,7 @@
     ./foot.nix
     ./mako.nix
     ./direnv.nix
+    ./kanshi.nix
     ./waybar.nix
     ./firefox.nix
     ./gammastep.nix
