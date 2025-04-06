@@ -4,12 +4,15 @@
   imports = [
     ../modules/location.nix
     ./labwc/labwc.nix
+    ./qt.nix
     ./git.nix
+    ./gtk.nix
     ./mpv.nix
     ./ssh.nix
     ./fish.nix
     ./foot.nix
     ./mako.nix
+    ./dconf.nix
     ./cursor.nix
     ./direnv.nix
     ./kanshi.nix

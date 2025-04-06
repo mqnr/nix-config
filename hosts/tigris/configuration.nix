@@ -61,6 +61,9 @@
     ];
   };
 
+  # Enable dconf
+  programs.dconf.enable = true;
+
   # Define a user account
   users.users.martin = {
     isNormalUser = true;
