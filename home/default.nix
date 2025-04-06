@@ -12,6 +12,8 @@
     ./fish.nix
     ./foot.nix
     ./mako.nix
+    ./mime.nix
+    ./pcmanfm
     ./dconf.nix
     ./cursor.nix
     ./direnv.nix
@@ -31,6 +33,8 @@
     # System utilities
     file          # File type identifier
     wget          # Get files over network
+    tree          # File system tree visualizer
+    killall       # Kill all
     fd            # Modern alternative to 'find'
     ripgrep       # Modern alternative to grep
     fzf           # Fuzzy finder
@@ -54,7 +58,6 @@
     swaylock              # Screen locker
     sway-contrib.grimshot # Screenshot tool
     fuzzel                # Application launcher
-    lxqt.pcmanfm-qt       # File manager
 
     # Programming
     jetbrains.idea-ultimate # Java development
@@ -80,7 +83,8 @@
     })
 
     # Other
-    aporetic # Protesilaos Stavrou's build of Iosevka
+    aporetic           # Protesilaos Stavrou's build of Iosevka
+    papirus-icon-theme # Icon theme
   ];
 
   home.stateVersion = "24.11";
