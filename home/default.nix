@@ -3,6 +3,7 @@
 {
   imports = [
     ../modules/location.nix
+    ./emacs
     ./labwc/labwc.nix
     ./qt.nix
     ./git.nix
@@ -68,19 +69,6 @@
 
     # Office suite
     libreoffice-qt6-fresh # LibreOffice
-
-    # Emacs
-    (emacsWithPackagesFromUsePackage {
-      config = ../init.el;
-
-      defaultInitFile = true;
-
-      package = pkgs.emacs-unstable-pgtk;
-
-      extraEmacsPackages = epkgs: [
-        epkgs.treesit-grammars.with-all-grammars
-      ];
-    })
 
     # Other
     aporetic           # Protesilaos Stavrou's build of Iosevka
