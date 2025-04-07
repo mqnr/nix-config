@@ -37,11 +37,20 @@
     <keybind key="A-F3">
       <action name="Execute" command="fuzzel" />
     </keybind>
+    <keybind key="W-d">
+      <action name="Execute" command="pcmanfm-qt" />
+    </keybind>
     <keybind key="W-t">
       <action name="Execute" command="fuzzel" />
     </keybind>
     <keybind key="W-s">
       <action name="Execute" command="fuzzel" />
+    </keybind>
+    <keybind key="W-m">
+      <action name="Execute" command="firefox" />
+    </keybind>
+    <keybind key="W-S-m">
+      <action name="Execute" command="firefox --private-window" />
     </keybind>
     <keybind key="W-f">
       <action name="ToggleFullscreen" />
