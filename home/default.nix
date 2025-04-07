@@ -9,6 +9,7 @@
     ./git.nix
     ./gtk.nix
     ./mpv.nix
+    ./sfwbar
     ./ssh.nix
     ./fish.nix
     ./foot.nix
