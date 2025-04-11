@@ -74,6 +74,7 @@
     # Other
     aporetic           # Protesilaos Stavrou's build of Iosevka
     papirus-icon-theme # Icon theme
+    google-chrome      # Popular propietary browser
   ];
 
   home.stateVersion = "24.11";
