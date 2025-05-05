@@ -29,16 +29,18 @@
     };
 
     mkHome = { system, host }:
-      home-manager.lib.homeManagerConfiguration {
+      let os = if nixpkgs.lib.strings.hasSuffix "darwin" system then "darwin"
+      else "linux";
+      in home-manager.lib.homeManagerConfiguration {
         pkgs = mkPkgs system;
         modules = [
-          ./home
+          ./home/common.nix
+          (./home + "/${os}.nix")
+          (./home + "/${host}.nix")
+          ./modules/shared/location-options.nix
+          ./modules/shared/location-private.nix
         ];
-        extraSpecialArgs = {
-          inherit inputs username host;
-          os = if nixpkgs.lib.strings.hasSuffix "darwin" system
-               then "darwin" else "linux";
-        };
+        extraSpecialArgs = { inherit inputs username host os; };
       };
 
     linux = "x86_64-linux";
@@ -46,18 +48,21 @@
   {
     # --- OS builds ---
     nixosConfigurations = {
-      tigris  = nixpkgs.lib.nixosSystem {
+      tigris = nixpkgs.lib.nixosSystem {
         system = linux;
-        pkgs   = mkPkgs linux;
+        pkgs = mkPkgs linux;
         modules = [
-          ./hosts/tigris
+          ./hosts/nixos/tigris
+          ./modules/system/common-linux.nix
+          ./modules/shared/location-options.nix
+          ./modules/shared/location-private.nix
         ];
       };
     };
 
     # --- home-manager ---
     homeConfigurations = {
-      tigris = mkHome { system = linux;  host = "tigris"; };
+      tigris = mkHome { system = linux; host = "tigris"; };
     };
 
     packages = builtins.listToAttrs (map (system: {

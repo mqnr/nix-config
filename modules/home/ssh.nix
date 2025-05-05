@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{lib, ... }:
 
 {
   imports = lib.optional (builtins.pathExists ../private/ssh.nix) ../private/ssh.nix;

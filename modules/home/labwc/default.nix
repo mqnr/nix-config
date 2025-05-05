@@ -3,7 +3,7 @@
 {
   xdg.dataFile = {
     "themes" = {
-      source = ../../vendor/labwc-themes;
+      source = ../../../vendor/labwc-themes;
       recursive = true;
     };
   };
