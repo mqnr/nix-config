@@ -21,5 +21,6 @@
         reverse-direction = true;
       };
     };
+    style = ./style.css;
   };
 }

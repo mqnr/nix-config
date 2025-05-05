@@ -1,0 +1,25 @@
+* {
+  font-family: "Aporetic Sans", monospace;
+  font-size: 14px;
+  color: #eef;
+}
+
+window#waybar {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.module {
+  margin: 0 2px;
+}
+
+label.module,
+box.module {
+  background: transparent;
+  padding: 2px 8px;
+  border-radius: 0;
+}
+
+label.module:hover,
+box.module:hover {
+  background: transparent;
+}

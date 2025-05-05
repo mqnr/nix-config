@@ -13,7 +13,7 @@
     ../modules/home/pcmanfm
     ../modules/home/dconf.nix
     ../modules/home/cursor.nix
-    ../modules/home/waybar.nix
+    ../modules/home/waybar
     ../modules/home/gammastep.nix
   ];
 
