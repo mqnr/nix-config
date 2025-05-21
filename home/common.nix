@@ -45,6 +45,7 @@
       jetbrains.rider         # .NET development
       jetbrains.rust-rover    # Rust development
       nil                     # Nix language server
+      postman
 
       # Office suite
       libreoffice-qt6-fresh # LibreOffice
