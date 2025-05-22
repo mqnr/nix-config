@@ -39,7 +39,8 @@
       yt-dlp      # Video downloader
       qbittorrent # Torrent client
 
-      # Programming
+      # Development
+      helix
       jetbrains.idea-ultimate # Java development
       jetbrains.phpstorm      # PHP development
       jetbrains.rider         # .NET development
