@@ -7,7 +7,6 @@
     ../modules/home/gtk.nix
     ../modules/home/mpv.nix
     ../modules/home/sfwbar
-    ../modules/home/foot.nix
     ../modules/home/mako.nix
     ../modules/home/mime.nix
     ../modules/home/pcmanfm

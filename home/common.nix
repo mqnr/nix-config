@@ -8,6 +8,7 @@
     ../modules/home/fish.nix
     ../modules/home/direnv.nix
     ../modules/home/firefox.nix
+    ../modules/home/ghostty.nix
   ];
 
   home = {

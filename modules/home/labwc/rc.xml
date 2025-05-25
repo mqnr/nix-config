@@ -14,7 +14,7 @@
     <default />
     <!-- Use a different terminal emulator -->
     <keybind key="W-Return">
-      <action name="Execute" command="foot" />
+      <action name="Execute" command="ghostty --gtk-single-instance=true" />
     </keybind>
     <keybind key="W-q"> <!-- Quit -->
       <action name="Close" />
