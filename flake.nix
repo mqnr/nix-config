@@ -52,7 +52,6 @@
           }
 
           ./modules/shared/location-options.nix
-          ./modules/shared/location-private.nix
         ];
       };
   in

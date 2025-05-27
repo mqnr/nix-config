@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   imports = [
@@ -11,8 +11,7 @@
     ../modules/home/ghostty.nix
 
     ../modules/shared/location-options.nix
-    ../modules/shared/location-private.nix
-  ];
+  ] ++ lib.optional (builtins.pathExists ../modules/shared/location-private.nix) ../modules/shared/location-private.nix;
 
   home.packages = with pkgs; [
     # Communication
