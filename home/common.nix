@@ -1,4 +1,4 @@
-{ pkgs, os, username, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -9,54 +9,49 @@
     ../modules/home/direnv.nix
     ../modules/home/firefox.nix
     ../modules/home/ghostty.nix
+
+    ../modules/shared/location-options.nix
+    ../modules/shared/location-private.nix
   ];
 
-  home = {
-    username = username;
-    homeDirectory =
-      if os == "darwin"
-      then "/Users/${username}"
-      else "/home/${username}";
-    stateVersion = "24.11";
-    packages = with pkgs; [
-      # Communication
-      discord # Messaging platform
+  home.packages = with pkgs; [
+    # Communication
+    discord # Messaging platform
 
-      # System utilities
-      file          # File type identifier
-      wget          # Get files over network
-      tree          # File system tree visualizer
-      killall       # Kill all
-      fd            # Modern alternative to 'find'
-      ripgrep       # Modern alternative to grep
-      fzf           # Fuzzy finder
-      age           # Encryption tool
+    # System utilities
+    file          # File type identifier
+    wget          # Get files over network
+    tree          # File system tree visualizer
+    killall       # Kill all
+    fd            # Modern alternative to 'find'
+    ripgrep       # Modern alternative to grep
+    fzf           # Fuzzy finder
+    age           # Encryption tool
 
-      # Media and graphics
-      ffmpeg                 # Media manipulation suite
-      obs-studio             # Recording/streaming
+    # Media and graphics
+    ffmpeg                 # Media manipulation suite
+    obs-studio             # Recording/streaming
 
-      # Downloading and torrenting
-      yt-dlp      # Video downloader
-      qbittorrent # Torrent client
+    # Downloading and torrenting
+    yt-dlp      # Video downloader
+    qbittorrent # Torrent client
 
-      # Development
-      helix
-      jetbrains.idea-ultimate # Java development
-      jetbrains.phpstorm      # PHP development
-      jetbrains.rider         # .NET development
-      jetbrains.rust-rover    # Rust development
-      nil                     # Nix language server
-      postman
+    # Development
+    helix
+    jetbrains.idea-ultimate # Java development
+    jetbrains.phpstorm      # PHP development
+    jetbrains.rider         # .NET development
+    jetbrains.rust-rover    # Rust development
+    nil                     # Nix language server
+    postman
 
-      # Office suite
-      libreoffice-qt6-fresh # LibreOffice
+    # Office suite
+    libreoffice-qt6-fresh # LibreOffice
 
-      # Other
-      aporetic           # Protesilaos Stavrou's build of Iosevka
-      google-chrome      # Popular propietary browser
-    ];
-  };
+    # Other
+    aporetic           # Protesilaos Stavrou's build of Iosevka
+    google-chrome      # Popular propietary browser
+  ];
 
   programs.home-manager.enable = true;
 }

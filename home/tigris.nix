@@ -2,8 +2,15 @@
 
 {
   imports = [
+    ./common.nix
+    ./linux.nix
     ../modules/home/kanshi.nix
   ];
 
-  home.packages = [ pkgs.brightnessctl ];
+  home = {
+    username = "martin";
+    homeDirectory = "/home/martin";
+    packages = [ pkgs.brightnessctl ];
+    stateVersion = "24.11";
+  };
 }

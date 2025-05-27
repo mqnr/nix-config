@@ -17,59 +17,51 @@
 
   outputs = inputs@{ self, nixpkgs, home-manager, emacs-overlay, ... }:
   let
-    # --- Convenience ---
+    # --- Configuration ---
     username = "martin";
-    supportedSystems = [ "x86_64-linux" "aarch64-darwin" ];
 
-    overlays = [ emacs-overlay.overlays.default ];
-
-    mkPkgs = system: import nixpkgs {
-      inherit system overlays;
-      config.allowUnfree = true;
+    # shared special args for all modules
+    specialArgs = {
+      inherit inputs username;
     };
 
-    mkHome = { system, host }:
-      let os = if nixpkgs.lib.strings.hasSuffix "darwin" system then "darwin"
-      else "linux";
-      in home-manager.lib.homeManagerConfiguration {
-        pkgs = mkPkgs system;
-        modules = [
-          ./home/common.nix
-          (./home + "/${os}.nix")
-          (./home + "/${host}.nix")
+    # helper to create system configurationsx
+    mkSystem = { host, system }:
+      let
+        systemBuilder = nixpkgs.lib.nixosSystem;
+
+        homeManagerModule = home-manager.nixosModules.home-manager;
+
+        systemModules = [ ./modules/system/common-linux.nix ];
+      in
+      systemBuilder {
+        inherit system specialArgs;
+        modules = systemModules ++ [
+          { nixpkgs.overlays = [ emacs-overlay.overlays.default ]; }
+
+          (./hosts/nixos + "/${host}")
+
+          homeManagerModule
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.${username} = import (./home + "/${host}.nix");
+              extraSpecialArgs = specialArgs // { inherit host; };
+            };
+          }
+
           ./modules/shared/location-options.nix
           ./modules/shared/location-private.nix
         ];
-        extraSpecialArgs = { inherit inputs username host os; };
       };
-
-    linux = "x86_64-linux";
   in
   {
-    # --- OS builds ---
     nixosConfigurations = {
-      tigris = nixpkgs.lib.nixosSystem {
-        system = linux;
-        pkgs = mkPkgs linux;
-        modules = [
-          ./hosts/nixos/tigris
-          ./modules/system/common-linux.nix
-          ./modules/shared/location-options.nix
-          ./modules/shared/location-private.nix
-        ];
+      tigris = mkSystem {
+        host = "tigris";
+        system = "x86_64-linux";
       };
     };
-
-    # --- home-manager ---
-    homeConfigurations = {
-      tigris = mkHome { system = linux; host = "tigris"; };
-    };
-
-    packages = builtins.listToAttrs (map (system: {
-      name = system;
-      value = {
-        home-manager = home-manager.packages.${system}.home-manager;
-      };
-    }) supportedSystems);
   };
 }

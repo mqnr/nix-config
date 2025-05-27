@@ -1,6 +1,10 @@
 { pkgs, ... }:
 
 {
+  imports = [
+    ../shared/common.nix
+  ];
+
   # Enable X11
   services.xserver.enable = true;
 
