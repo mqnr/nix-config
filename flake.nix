@@ -32,6 +32,8 @@
       systemBuilder {
         inherit system specialArgs;
         modules = systemModules ++ [
+          ./modules/shared/common.nix
+
           { nixpkgs.overlays = [ ]; }
 
           (./hosts/nixos + "/${host}")
@@ -47,6 +49,7 @@
           }
 
           ./modules/shared/location-options.nix
+          ./modules/shared/location-private.nix
         ];
       };
   in

@@ -11,7 +11,8 @@
     ../modules/home/vscode.nix
 
     ../modules/shared/location-options.nix
-  ] ++ lib.optional (builtins.pathExists ../modules/shared/location-private.nix) ../modules/shared/location-private.nix;
+    ../modules/shared/location-private.nix
+  ];
 
   home.packages = with pkgs; [
     # Communication
