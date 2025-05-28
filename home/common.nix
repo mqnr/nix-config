@@ -8,6 +8,7 @@
     ../modules/home/direnv.nix
     ../modules/home/firefox.nix
     ../modules/home/ghostty.nix
+    ../modules/home/vscode.nix
 
     ../modules/shared/location-options.nix
   ] ++ lib.optional (builtins.pathExists ../modules/shared/location-private.nix) ../modules/shared/location-private.nix;
