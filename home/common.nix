@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ../modules/home/emacs
     ../modules/home/git.nix
     ../modules/home/ssh.nix
     ../modules/home/fish.nix

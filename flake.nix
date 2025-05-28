@@ -8,14 +8,9 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    emacs-overlay = {
-      url = "github:nix-community/emacs-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, emacs-overlay, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, ... }:
   let
     # --- Configuration ---
     username = "martin";
@@ -37,7 +32,7 @@
       systemBuilder {
         inherit system specialArgs;
         modules = systemModules ++ [
-          { nixpkgs.overlays = [ emacs-overlay.overlays.default ]; }
+          { nixpkgs.overlays = [ ]; }
 
           (./hosts/nixos + "/${host}")
 
