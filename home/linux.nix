@@ -14,6 +14,7 @@
     ../modules/home/cursor.nix
     ../modules/home/waybar
     ../modules/home/gammastep.nix
+    ../modules/home/niri.nix
   ];
 
   home.packages = with pkgs; [
@@ -28,6 +29,7 @@
     swaylock              # Screen locker
     sway-contrib.grimshot # Screenshot tool
     fuzzel                # Application launcher
+    xwayland-satellite    # Xwayland integration for compositors lacking it
 
     # Other
     papirus-icon-theme # Icon theme

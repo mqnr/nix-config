@@ -8,9 +8,14 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, niri, ... }:
   let
     # --- Configuration ---
     username = "martin";
@@ -34,9 +39,15 @@
         modules = systemModules ++ [
           ./modules/shared/common.nix
 
-          { nixpkgs.overlays = [ ]; }
+          ({pkgs, ...}: {
+            programs.niri.enable = true;
+            programs.niri.package = pkgs.niri;
+            nixpkgs.overlays = [ niri.overlays.niri ];
+          })
 
           (./hosts/nixos + "/${host}")
+
+          niri.nixosModules.niri
 
           homeManagerModule
           {
