@@ -12,8 +12,7 @@ window#waybar {
   margin: 0 2px;
 }
 
-label.module,
-box.module {
+label {
   background: transparent;
   padding: 2px 8px;
   border-radius: 0;
