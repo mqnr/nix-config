@@ -1,5 +1,0 @@
-XKB_DEFAULT_LAYOUT=tangent-gallium
-
-# Qt dark theme
-QT_STYLE_OVERRIDE=adwaita-dark
-QT_QPA_PLATFORMTHEME=gtk2

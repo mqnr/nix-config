@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ../modules/home/labwc
     ../modules/home/qt.nix
     ../modules/home/gtk.nix
     ../modules/home/mpv.nix
@@ -23,11 +22,9 @@
     kdePackages.okular     # Document viewer
 
     # Desktop
-    labwc                 # Stacking Wayland compositor
     swaybg                # Wallpaper tool
     swayidle              # Idle management
     swaylock              # Screen locker
-    sway-contrib.grimshot # Screenshot tool
     fuzzel                # Application launcher
     xwayland-satellite    # Xwayland integration for compositors lacking it
 
