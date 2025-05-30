@@ -39,20 +39,29 @@
         "${modifier}+S".action = spawn "fuzzel";
         "Super+Alt+L".action = spawn "swaylock";
 
-        "XF86AudioRaiseVolume" = {
+        "XF86_AudioRaiseVolume" = {
           action = sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.5";
           allow-when-locked = true;
         };
-        "XF86AudioLowerVolume" = {
+        "XF86_AudioLowerVolume" = {
           action = sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-";
           allow-when-locked = true;
         };
-        "XF86AudioMute" = {
+        "XF86_AudioMute" = {
           action = sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
           allow-when-locked = true;
         };
-        "XF86AudioMicMute" = {
+        "XF86_AudioMicMute" = {
           action = sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
+          allow-when-locked = true;
+        };
+
+        "XF86_MonBrightnessUp" = {
+          action = sh "brightnessctl set +5%";
+          allow-when-locked = true;
+        };
+        "XF86_MonBrightnessDown" = {
+          action = sh "brightnessctl set 5%-";
           allow-when-locked = true;
         };
 
