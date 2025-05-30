@@ -12,6 +12,7 @@
         };
         mouse.accel-profile = "flat";
       };
+      outputs."eDP-1".scale = 1.25;
       animations.slowdown = 0.5;
       spawn-at-startup = [
         # do this better?

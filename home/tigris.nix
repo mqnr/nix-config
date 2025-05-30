@@ -4,7 +4,6 @@
   imports = [
     ./common.nix
     ./linux.nix
-    ../modules/home/kanshi.nix
   ];
 
   home = {
