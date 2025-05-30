@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
 {
+  imports = [ ./greetd.nix ];
+
   # Enable X11
   services.xserver.enable = true;
 
@@ -62,16 +64,6 @@
   security.polkit.enable = true;
 
   services.tumbler.enable = true;
-
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.greetd.greetd}/bin/agreety --cmd niri-session";
-        user = "greeter";
-      };
-    };
-  };
 
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

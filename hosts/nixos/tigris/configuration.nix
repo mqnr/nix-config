@@ -7,7 +7,7 @@
 
   # Enable hibernation
   boot.resumeDevice = "/dev/disk/by-label/NIXOS_SWAP";
-  boot.kernelParams = [ "resume_offset=0" "mem_sleep_default=deep" ];
+  boot.kernelParams = [ "quiet" "loglevel=3" "resume_offset=0" "mem_sleep_default=deep" ];
 
   # Enable zram
   zramSwap = {

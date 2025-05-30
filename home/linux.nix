@@ -27,8 +27,10 @@
     swaylock              # Screen locker
     fuzzel                # Application launcher
     xwayland-satellite    # Xwayland integration for compositors lacking it
+    wayland-logout        # Utility to kill Wayland compositors
 
     # Other
+    greetd.gtkgreet    # GTK frontend for greetd
     papirus-icon-theme # Icon theme
   ];
 }
