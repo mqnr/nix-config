@@ -67,7 +67,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.greetd}/bin/agreety --cmd labwc";
+        command = "${pkgs.greetd.greetd}/bin/agreety --cmd niri-session";
         user = "greeter";
       };
     };
