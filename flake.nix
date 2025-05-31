@@ -32,12 +32,12 @@
 
         homeManagerModule = home-manager.nixosModules.home-manager;
 
-        systemModules = [ ./modules/system/common-linux.nix ];
+        systemModules = [ ./modules/linux/common-linux.nix ];
       in
       systemBuilder {
         inherit system specialArgs;
         modules = systemModules ++ [
-          ./modules/shared/common.nix
+          ./modules/common/common.nix
 
           ({pkgs, ...}: {
             programs.niri.enable = true;
@@ -59,8 +59,8 @@
             };
           }
 
-          ./modules/shared/location-options.nix
-          ./modules/shared/location-private.nix
+          ./modules/common/location-options.nix
+          ./modules/common/location-private.nix
         ];
       };
   in

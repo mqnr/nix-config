@@ -2,16 +2,16 @@
 
 {
   imports = [
-    ../modules/home/git.nix
-    ../modules/home/ssh.nix
-    ../modules/home/fish.nix
-    ../modules/home/direnv.nix
-    ../modules/home/firefox.nix
-    ../modules/home/ghostty.nix
-    ../modules/home/vscode.nix
+    ../modules/common/git.nix
+    ../modules/common/ssh.nix
+    ../modules/common/fish.nix
+    ../modules/common/direnv.nix
+    ../modules/common/firefox.nix
+    ../modules/common/ghostty.nix
+    ../modules/common/vscode.nix
 
-    ../modules/shared/location-options.nix
-    ../modules/shared/location-private.nix
+    ../modules/common/location-options.nix
+    ../modules/common/location-private.nix
   ];
 
   home.packages = with pkgs; [

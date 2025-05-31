@@ -2,18 +2,18 @@
 
 {
   imports = [
-    ../modules/home/qt.nix
-    ../modules/home/gtk.nix
-    ../modules/home/mpv.nix
-    ../modules/home/sfwbar
-    ../modules/home/mako.nix
-    ../modules/home/mime.nix
-    ../modules/home/pcmanfm
-    ../modules/home/dconf.nix
-    ../modules/home/cursor.nix
-    ../modules/home/waybar
-    ../modules/home/gammastep.nix
-    ../modules/home/niri.nix
+    ../modules/linux/qt.nix
+    ../modules/linux/gtk.nix
+    ../modules/common/mpv.nix
+    ../modules/linux/sfwbar
+    ../modules/linux/mako.nix
+    ../modules/linux/mime.nix
+    ../modules/linux/pcmanfm
+    ../modules/linux/dconf.nix
+    ../modules/linux/cursor.nix
+    ../modules/linux/waybar
+    ../modules/linux/gammastep.nix
+    ../modules/linux/niri.nix
   ];
 
   home.packages = with pkgs; [
