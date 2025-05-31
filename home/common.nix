@@ -10,6 +10,7 @@
     ../modules/common/ghostty.nix
     ../modules/common/vscode.nix
     ../modules/common/nushell.nix
+    ../modules/common/bat.nix
 
     ../modules/common/location-options.nix
     ../modules/common/location-private.nix
@@ -28,7 +29,6 @@
     killall       # Kill all
     fd            # Modern alternative to 'find'
     ripgrep       # Modern alternative to 'grep'
-    bat           # Modern alternative to 'cat' (for reading)
     fzf           # Fuzzy finder
     age           # Encryption tool
 
