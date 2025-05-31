@@ -16,7 +16,9 @@
 
   home.packages = with pkgs; [
     # Communication
-    discord # Messaging platform
+    discord        # Messaging platform
+    discord-ptb    # Public Test Build
+    discord-canary # Bleeding edge
 
     # System utilities
     file          # File type identifier
