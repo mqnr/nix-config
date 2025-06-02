@@ -6,6 +6,12 @@
     systemd.enable = true;
     settings.mainBar = {
       layer = "top";
+      modules-left = [
+        "niri/workspaces"
+      ];
+      modules-center = [
+        "niri/window"
+      ];
       modules-right = [
         "tray"
         "battery"
