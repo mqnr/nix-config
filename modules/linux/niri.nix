@@ -12,7 +12,14 @@
         };
         mouse.accel-profile = "flat";
       };
-      outputs."eDP-1".scale = 1.25;
+      outputs = {
+        "eDP-1".scale = 1.25;
+        "HDMI-A-1".mode = {
+          width = 1920;
+          height = 1080;
+          refresh = 100.0;
+        };
+      };
       animations.slowdown = 0.5;
       spawn-at-startup = [
         # do this better?
