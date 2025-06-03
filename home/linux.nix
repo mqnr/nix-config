@@ -14,6 +14,7 @@
     ../modules/linux/waybar
     ../modules/linux/gammastep.nix
     ../modules/linux/niri.nix
+    ../modules/linux/labwc.nix
   ];
 
   home.packages = with pkgs; [
@@ -30,7 +31,10 @@
     wayland-logout        # Utility to kill Wayland compositors
 
     # Other
-    greetd.gtkgreet    # GTK frontend for greetd
-    papirus-icon-theme # Icon theme
+    greetd.gtkgreet           # GTK frontend for greetd
+    papirus-icon-theme        # Icon theme
+    nerd-fonts.jetbrains-mono # Patched JetBrains Mono
   ];
+
+  fonts.fontconfig.enable = true;
 }
