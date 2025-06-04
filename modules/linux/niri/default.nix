@@ -49,6 +49,7 @@
 
         "${modifier}+Return".action = sh "ghostty --gtk-single-instance=true";
         "${modifier}+S".action = spawn "fuzzel";
+        "Alt+F3".action = spawn "fuzzel";
         "Super+Alt+L".action = spawn "swaylock";
 
         "XF86_AudioRaiseVolume" = {
@@ -77,6 +78,8 @@
           allow-when-locked = true;
         };
 
+        "Alt+F4".action = close-window;
+        "${modifier}+Q".action = close-window;
         # oBliterate
         "${modifier}+B".action = close-window;
 
@@ -138,16 +141,16 @@
 
         "${modifier}+Page_Down".action = focus-workspace-down;
         "${modifier}+Page_Up".action = focus-workspace-up;
-        "${modifier}+U".action = focus-workspace-down;
+        "${modifier}+Period".action = focus-workspace-down;
         "${modifier}+Comma".action = focus-workspace-up;
         "${modifier}+Ctrl+Page_Down".action = move-column-to-workspace-down;
         "${modifier}+Ctrl+Page_Up".action = move-column-to-workspace-up;
-        "${modifier}+Ctrl+U".action = move-column-to-workspace-down;
+        "${modifier}+Ctrl+Period".action = move-column-to-workspace-down;
         "${modifier}+Ctrl+Comma".action = move-column-to-workspace-up;
 
         "${modifier}+Shift+Page_Down".action = move-workspace-down;
         "${modifier}+Shift+Page_Up".action = move-workspace-up;
-        "${modifier}+Shift+U".action = move-workspace-down;
+        "${modifier}+Shift+Period".action = move-workspace-down;
         "${modifier}+Shift+Comma".action = move-workspace-up;
 
         "${modifier}+WheelScrollDown" = {
