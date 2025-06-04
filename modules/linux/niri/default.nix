@@ -8,6 +8,7 @@
 
   programs.niri = {
     settings = {
+      prefer-no-csd = true;
       input = {
         keyboard.xkb.layout = "tangent-gallium";
         touchpad = {
@@ -51,6 +52,11 @@
         "${modifier}+S".action = spawn "fuzzel";
         "Alt+F3".action = spawn "fuzzel";
         "Super+Alt+L".action = spawn "swaylock";
+
+        "${modifier}+D".action = spawn "pcmanfm-qt";
+
+        "${modifier}+M".action = spawn "firefox";
+        "${modifier}+Shift+M".action = sh "firefox --private-window";
 
         "XF86_AudioRaiseVolume" = {
           action = sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.5";
@@ -213,7 +219,7 @@
 
         "${modifier}+Ctrl+F".action = expand-column-to-available-width;
 
-        "${modifier}+D".action = center-column;
+        "${modifier}+V".action = center-column;
 
         "${modifier}+Minus".action = set-column-width "-10%";
         "${modifier}+Equal".action = set-column-width "+10%";
