@@ -89,6 +89,12 @@
         # oBliterate
         "${modifier}+B".action = close-window;
 
+        # Uvierview
+        "${modifier}+U" = {
+          action = toggle-overview;
+          repeat = false;
+        };
+
         "${modifier}+Left".action = focus-column-left;
         "${modifier}+Down".action = focus-window-or-workspace-down;
         "${modifier}+Up".action = focus-window-or-workspace-up;
