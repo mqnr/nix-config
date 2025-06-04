@@ -8,7 +8,7 @@
       command = "fish";
       font-family = "Aporetic Sans Mono";
       font-size = 16;
-      background-opacity = 0.93;
+      background-opacity = 0.8;
     };
   };
 }
