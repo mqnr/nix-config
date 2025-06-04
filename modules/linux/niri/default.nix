@@ -1,6 +1,11 @@
 { config, ... }:
 
 {
+  imports = [
+    ./gtkgreet.nix
+    ./waybar.nix
+  ];
+
   programs.niri = {
     settings = {
       input = {

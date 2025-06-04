@@ -31,6 +31,15 @@ let
   '';
 in
 {
-  services.greetd.settings.default_session.command =
-    "dbus-run-session ${pkgs.niri}/bin/niri --config ${niriConfig}";
+  services.greetd = {
+    enable = true;
+    settings.default_session.command = "dbus-run-session ${pkgs.niri}/bin/niri --config ${niriConfig}";
+  };
+
+  environment.etc."greetd/environments".text = ''
+    niri-session
+    fish
+    nu
+    bash
+  '';
 }

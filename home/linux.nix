@@ -11,9 +11,8 @@
     ../modules/linux/pcmanfm
     ../modules/linux/dconf.nix
     ../modules/linux/cursor.nix
-    ../modules/linux/waybar
     ../modules/linux/gammastep.nix
-    ../modules/linux/niri.nix
+    ../modules/linux/niri
     ../modules/linux/labwc.nix
   ];
 
@@ -31,7 +30,6 @@
     wayland-logout        # Utility to kill Wayland compositors
 
     # Other
-    greetd.gtkgreet           # GTK frontend for greetd
     papirus-icon-theme        # Icon theme
     nerd-fonts.jetbrains-mono # Patched JetBrains Mono
   ];

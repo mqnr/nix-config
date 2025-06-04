@@ -61,6 +61,6 @@
         reverse-direction = true;
       };
     };
-    style = ./style.css;
+    style = ./waybar-style.css;
   };
 }
