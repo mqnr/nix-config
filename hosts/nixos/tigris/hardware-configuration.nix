@@ -13,6 +13,8 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   fileSystems = let
     mkBtrfsSubvol = subvol: {
       device = "/dev/disk/by-label/NIXOS_ROOT";
