@@ -47,7 +47,7 @@
   # Define a user account
   users.users.martin = {
     isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "bluetooth" "video" ];
   };
 
   # Services to enable:
