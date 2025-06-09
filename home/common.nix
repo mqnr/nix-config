@@ -12,7 +12,7 @@
     ../modules/common/nushell.nix
     ../modules/common/bat.nix
 
-    ../modules/common/location-options.nix
+    ../lib/location.nix
     ../modules/common/location-private.nix
   ];
 

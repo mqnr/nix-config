@@ -59,7 +59,7 @@
             };
           }
 
-          ./modules/common/location-options.nix
+          ./lib/location.nix
           ./modules/common/location-private.nix
         ];
       };

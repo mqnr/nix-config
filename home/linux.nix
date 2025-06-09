@@ -13,7 +13,6 @@
     ../modules/linux/cursor.nix
     ../modules/linux/gammastep.nix
     ../modules/linux/niri
-    ../modules/linux/labwc.nix
   ];
 
   home.packages = with pkgs; [
