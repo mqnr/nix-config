@@ -1,3 +1,3 @@
 # snowman
 
-My NixOS config. I use the Labwc Wayland compositor.
+My NixOS config. I use the Niri Wayland compositor.
