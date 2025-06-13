@@ -1,7 +1,10 @@
 { pkgs, ... }:
 
 {
-  imports = [ ./greetd-sys.nix ];
+  imports = [
+    ./greetd-sys.nix
+    ./niri/xdg.nix
+  ];
 
   # Enable X11
   services.xserver.enable = true;
