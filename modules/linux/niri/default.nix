@@ -42,6 +42,7 @@
         DISPLAY = ":0";
         _JAVA_AWT_WM_NONREPARENTING = "1";
       };
+      layout.focus-ring.active.color = "#a6c18b";
       binds = with config.lib.niri.actions; let
         modifier = "Mod";
         sh = spawn "sh" "-c";
