@@ -165,12 +165,21 @@
         "${modifier}+Ctrl+Period".action = move-workspace-down;
         "${modifier}+Ctrl+Comma".action = move-workspace-up;
 
+        "${modifier}+WheelScrollRight".action = focus-column-right;
+        "${modifier}+WheelScrollLeft".action = focus-column-left;
+        "${modifier}+Shift+WheelScrollRight".action = move-column-right;
+        "${modifier}+Shift+WheelScrollLeft".action = move-column-left;
+        "${modifier}+Ctrl+WheelScrollLeft".action = focus-monitor-left;
+        "${modifier}+Ctrl+WheelScrollRight".action = focus-monitor-right;
+        "${modifier}+Ctrl+Shift+WheelScrollRight".action = move-column-to-monitor-right;
+        "${modifier}+Ctrl+Shift+WheelScrollLeft".action = move-column-to-monitor-left;
+
         "${modifier}+WheelScrollDown" = {
-          action = focus-workspace-down;
+          action = focus-window-or-workspace-down;
           cooldown-ms = 150;
         };
         "${modifier}+WheelScrollUp" = {
-          action = focus-workspace-up;
+          action = focus-window-or-workspace-up;
           cooldown-ms = 150;
         };
         "${modifier}+Shift+WheelScrollDown" = {
@@ -182,15 +191,19 @@
           cooldown-ms = 150;
         };
 
-        "${modifier}+WheelScrollRight".action = focus-column-right;
-        "${modifier}+WheelScrollLeft".action = focus-column-left;
-        "${modifier}+Shift+WheelScrollRight".action = move-column-right;
-        "${modifier}+Shift+WheelScrollLeft".action = move-column-left;
+        "${modifier}+Ctrl+WheelScrollDown".action = focus-monitor-down;
+        "${modifier}+Ctrl+WheelScrollUp".action = focus-monitor-up;
+        "${modifier}+Ctrl+Shift+WheelScrollDown".action = move-column-to-monitor-down;
+        "${modifier}+Ctrl+Shift+WheelScrollUp".action = move-column-to-monitor-up;
 
-        "${modifier}+Ctrl+WheelScrollDown".action = focus-column-right;
-        "${modifier}+Ctrl+WheelScrollUp".action = focus-column-left;
-        "${modifier}+Ctrl+Shift+WheelScrollDown".action = move-column-right;
-        "${modifier}+Ctrl+Shift+WheelScrollUp".action = move-column-left;
+        "${modifier}+MouseBack".action = focus-column-left;
+        "${modifier}+MouseForward".action = focus-column-right;
+        "${modifier}+Shift+MouseBack".action = move-column-left;
+        "${modifier}+Shift+MouseForward".action = move-column-right;
+        "${modifier}+Ctrl+MouseBack".action = focus-monitor-left;
+        "${modifier}+Ctrl+MouseForward".action = focus-monitor-right;
+        "${modifier}+Ctrl+Shift+MouseBack".action = move-column-to-monitor-left;
+        "${modifier}+Ctrl+Shift+MouseForward".action = move-column-to-monitor-right;
 
         "${modifier}+1".action = focus-workspace 1;
         "${modifier}+2".action = focus-workspace 2;
