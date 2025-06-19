@@ -11,6 +11,7 @@
     ../modules/common/vscode.nix
     ../modules/common/nushell.nix
     ../modules/common/bat.nix
+    ../modules/common/helix.nix
 
     ../lib/location.nix
     ../modules/common/location-private.nix
@@ -41,7 +42,6 @@
     qbittorrent # Torrent client
 
     # Development
-    helix
     jetbrains.idea-ultimate # Java development
     jetbrains.phpstorm      # PHP development
     jetbrains.rider         # .NET development
