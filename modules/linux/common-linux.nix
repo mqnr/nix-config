@@ -67,7 +67,4 @@
   security.polkit.enable = true;
 
   services.tumbler.enable = true;
-
-  # Enable flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }
