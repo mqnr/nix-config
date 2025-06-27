@@ -1,22 +1,25 @@
-{ config, lib, pkgs, ... }:
+{ ... }:
 
 {
   xdg.mimeApps = {
     enable = true;
-    defaultApplications = let docViewer = "org.kde.okular.desktop"; imgViewer = "viewnior.desktop"; in {
+    defaultApplications = let
+      documentViewer = [ "org.kde.okular.desktop" ];
+      imageViewer    = [ "viewnior.desktop" ];
+    in {
       # PDF files in Okular
-      "application/pdf" = [docViewer];
-      "application/x-pdf" = [docViewer];
+      "application/pdf"   = documentViewer;
+      "application/x-pdf" = documentViewer;
 
       # Image files in Viewnior
-      "image/jpeg" = [imgViewer];
-      "image/png" = [imgViewer];
-      "image/gif" = [imgViewer];
-      "image/webp" = [imgViewer];
-      "image/tiff" = [imgViewer];
-      "image/bmp" = [imgViewer];
-      "image/x-icon" = [imgViewer];
-      "image/svg+xml" = [imgViewer];
+      "image/jpeg"    = imageViewer;
+      "image/png"     = imageViewer;
+      "image/gif"     = imageViewer;
+      "image/webp"    = imageViewer;
+      "image/tiff"    = imageViewer;
+      "image/bmp"     = imageViewer;
+      "image/x-icon"  = imageViewer;
+      "image/svg+xml" = imageViewer;
     };
   };
 }
