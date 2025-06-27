@@ -18,6 +18,7 @@
       ".idea"
       ".direnv"
       ".envrc"
+      ".env"
       "*~"
       ".fuse_hidden*"
       ".directory"
