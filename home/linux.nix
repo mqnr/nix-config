@@ -30,9 +30,5 @@
 
     # Other
     papirus-icon-theme        # Icon theme
-    nerd-fonts.jetbrains-mono # Patched JetBrains Mono
   ];
-
-  # TODO: move this
-  fonts.fontconfig.enable = true;
 }

@@ -12,6 +12,7 @@
     ../modules/common/nushell.nix
     ../modules/common/bat.nix
     ../modules/common/helix.nix
+    ../modules/common/fonts.nix
 
     ../lib/location.nix
     ../modules/common/location-private.nix
@@ -53,7 +54,6 @@
     libreoffice-qt6-fresh # LibreOffice
 
     # Other
-    aporetic           # Protesilaos Stavrou's build of Iosevka
     google-chrome      # Popular propietary browser
   ];
 
