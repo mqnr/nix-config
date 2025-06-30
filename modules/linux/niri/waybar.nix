@@ -21,8 +21,6 @@
         };
       };
 
-      modules-center = [ "niri/window" ];
-
       modules-right = ["tray" "battery" "pulseaudio" "clock" ];
 
       pulseaudio = {
