@@ -106,8 +106,8 @@ button:hover {
 .modules-right,
 .modules-left,
 .modules-center {
-  background-color: rgba(0, 0, 0, 0.6);
-  border-radius: 18px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 6px;
 }
 
 .modules-right {
