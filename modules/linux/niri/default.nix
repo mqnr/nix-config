@@ -66,10 +66,10 @@
     in {
       "Mod+Shift+Slash".action = show-hotkey-overlay;
 
-      "Mod+Return".action = sh "ghostty --gtk-single-instance=true";
-      "Mod+Space".action  = spawn "fuzzel";
-      "Alt+F3".action             = spawn "fuzzel";
-      "Super+Alt+L".action        = spawn "swaylock";
+      "Mod+Return".action  = sh "ghostty --gtk-single-instance=true";
+      "Mod+Space".action   = spawn "fuzzel";
+      "Alt+F3".action      = spawn "fuzzel";
+      "Super+Alt+L".action = spawn "swaylock";
 
       "Mod+D".action = spawn "pcmanfm-qt";
 
@@ -81,15 +81,17 @@
       "XF86_MonBrightnessUp"   = sh-allow-locked "brightnessctl set +5%";
       "XF86_MonBrightnessDown" = sh-allow-locked "brightnessctl set 5%-";
 
-      "Alt+F4".action        = close-window;
-      "Mod+Q".action = close-window;
-      "Mod+B".action = close-window; # oBliterate
+      "Alt+F4".action = close-window;
+      "Mod+Q".action  = close-window;
+      "Mod+B".action  = close-window; # oBliterate
 
       # Uvierview
       "Mod+U" = {
         action = toggle-overview;
         repeat = false;
       };
+
+      "Mod+Slash".action = spawn "set-wallpaper";
 
       "Mod+M".action = focus-window-previous;
 
@@ -223,12 +225,12 @@
       "Alt+Print".action                    = screenshot-window;
 
       "Mod+Escape" = {
-        action = toggle-keyboard-shortcuts-inhibit;
+        action           = toggle-keyboard-shortcuts-inhibit;
         allow-inhibiting = false;
       };
 
-      "Mod+Shift+D".action = quit;
-      "Ctrl+Alt+Delete".action     = quit;
+      "Mod+Shift+D".action     = quit;
+      "Ctrl+Alt+Delete".action = quit;
 
       "Mod+Shift+P".action = power-off-monitors;
     } // workspaceBindings;

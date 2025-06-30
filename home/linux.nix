@@ -13,6 +13,8 @@
     ../modules/linux/cursor.nix
     ../modules/linux/gammastep.nix
     ../modules/linux/niri
+    ../modules/linux/wofi.nix
+    ../modules/linux/wallpaper.nix
   ];
 
   home.packages = with pkgs; [
@@ -21,7 +23,6 @@
     kdePackages.okular     # Document viewer
 
     # Desktop
-    swaybg                # Wallpaper tool
     swayidle              # Idle management
     swaylock              # Screen locker
     fuzzel                # Application launcher
