@@ -51,6 +51,8 @@
     };
 
     layout = {
+      gaps = 8;
+
       focus-ring.width = 2;
 
       focus-ring.active.color = "#73b8e5";

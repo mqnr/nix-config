@@ -8,9 +8,8 @@
     settings.mainBar = {
       layer = "top";
 
-      margin-top   = 8;
-      margin-left  = 16;
-      margin-right = 16;
+      margin-left  = 8;
+      margin-right = 8;
 
       modules-left = [ "niri/workspaces" ];
 
