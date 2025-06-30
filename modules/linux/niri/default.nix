@@ -50,7 +50,12 @@
       _JAVA_AWT_WM_NONREPARENTING = "1";
     };
 
-    layout.focus-ring.active.color = "#a6c18b";
+    layout = {
+      focus-ring.width = 2;
+
+      focus-ring.active.color = "#73b8e5";
+      focus-ring.urgent.color = "#e57380";
+    };
 
     binds = with config.lib.niri.actions; let
       sh                   = spawn "sh" "-c";
