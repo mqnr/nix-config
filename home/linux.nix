@@ -15,6 +15,7 @@
     ../modules/linux/niri
     ../modules/linux/wofi.nix
     ../modules/linux/wallpaper.nix
+    ../modules/linux/fuzzel.nix
   ];
 
   home.packages = with pkgs; [
@@ -25,7 +26,6 @@
     # Desktop
     swayidle              # Idle management
     swaylock              # Screen locker
-    fuzzel                # Application launcher
     xwayland-satellite    # Xwayland integration for compositors lacking it
     wayland-logout        # Utility to kill Wayland compositors
 
