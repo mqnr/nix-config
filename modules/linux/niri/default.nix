@@ -61,6 +61,7 @@
       sh                   = spawn "sh" "-c";
       sh-allow-locked      = command: { action = sh command; allow-when-locked = true; };
       with-150-ms-cooldown = action: { inherit action; cooldown-ms = 150; };
+      no-repeat            = action: { inherit action; repeat = false; };
 
       workspaceBindings = lib.range 1 9
         |> builtins.concatMap (i: let si = toString i; in [
@@ -91,12 +92,9 @@
       "Mod+B".action  = close-window; # oBliterate
 
       # Uvierview
-      "Mod+U" = {
-        action = toggle-overview;
-        repeat = false;
-      };
+      "Mod+U" = no-repeat toggle-overview;
 
-      "Mod+Slash".action = spawn "set-wallpaper";
+      "Mod+Slash" = no-repeat (spawn "set-wallpaper");
 
       "Mod+M".action = focus-window-previous;
 
