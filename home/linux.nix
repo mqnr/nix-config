@@ -13,7 +13,6 @@
     ../modules/linux/cursor.nix
     ../modules/linux/gammastep.nix
     ../modules/linux/niri
-    ../modules/linux/wofi.nix
     ../modules/linux/wallpaper.nix
     ../modules/linux/fuzzel.nix
   ];

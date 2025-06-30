@@ -6,8 +6,9 @@ let
     let dir = $env.HOME | path join "Pictures" "Wallpapers"
     let choice = glob $"($dir)/**/*" --no-dir
       | path relative-to $dir
+      | sort
       | to text
-      | wofi --dmenu --sort-order alphabetical --prompt "Choose a wallpaper..."
+      | fuzzel --dmenu --width 60 --prompt "Wallpaper: "
     swww img ($dir | path join $choice) --transition-type right --transition-duration 1
   '';
 in
