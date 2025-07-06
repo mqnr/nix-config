@@ -6,6 +6,8 @@
     ./niri/xdg.nix
   ];
 
+  boot.supportedFilesystems = [ "ntfs" ];
+
   # Enable X11
   services.xserver.enable = true;
 
