@@ -2,7 +2,7 @@
 
 {
   # TODO: move this somewhere else?
-  home.sessionVariables = let browserPath = "${pkgs.firefox}/bin/firefox"; in {
+  home.sessionVariables = let browserPath = "${pkgs.librewolf}/bin/librewolf"; in {
     BROWSER         = browserPath;
     DEFAULT_BROWSER = browserPath;
   };
@@ -10,7 +10,7 @@
   xdg.mimeApps = {
     enable = true;
     defaultApplications = let
-      browser        = [ "firefox.desktop" ];
+      browser        = [ "librewolf.desktop" ];
       documentViewer = [ "org.kde.okular.desktop" ];
       imageViewer    = [ "viewnior.desktop" ];
     in {

@@ -13,6 +13,7 @@
     ../modules/common/bat.nix
     ../modules/common/helix.nix
     ../modules/common/fonts.nix
+    ../modules/common/librewolf.nix
 
     ../lib/location.nix
     ../modules/common/location-private.nix
