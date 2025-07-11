@@ -14,6 +14,7 @@
     ../modules/common/helix.nix
     ../modules/common/fonts.nix
     ../modules/common/librewolf.nix
+    ../modules/common/shell.nix
 
     ../lib/location.nix
     ../modules/common/location-private.nix
