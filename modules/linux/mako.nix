@@ -5,7 +5,10 @@
     enable = true;
 
     settings = {
-      default-timeout = 120000; # 2 minutes
+      font = "Aporetic Sans 14";
+      background-color = "#26302FE6";
+      border-radius = 6;
+      default-timeout = 15000; # 15 seconds
     };
   };
 }
