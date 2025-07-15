@@ -15,6 +15,7 @@
     ../modules/linux/niri
     ../modules/linux/wallpaper.nix
     ../modules/linux/fuzzel.nix
+    ../modules/linux/userdirs.nix
   ];
 
   home.packages = with pkgs; [
