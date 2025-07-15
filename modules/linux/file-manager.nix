@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    lxqt.pcmanfm-qt
+    nautilus
 
     lxde.lxmenu-data
     shared-mime-info

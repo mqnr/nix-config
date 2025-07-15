@@ -8,7 +8,6 @@
     ../modules/linux/sfwbar
     ../modules/linux/mako.nix
     ../modules/linux/mime.nix
-    ../modules/linux/pcmanfm
     ../modules/linux/dconf.nix
     ../modules/linux/cursor.nix
     ../modules/linux/gammastep.nix
@@ -16,6 +15,7 @@
     ../modules/linux/wallpaper.nix
     ../modules/linux/fuzzel.nix
     ../modules/linux/userdirs.nix
+    ../modules/linux/file-manager.nix
   ];
 
   home.packages = with pkgs; [

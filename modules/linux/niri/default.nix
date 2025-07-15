@@ -79,7 +79,7 @@
       "Alt+F3".action      = spawn "fuzzel";
       "Super+Alt+L".action = spawn "swaylock";
 
-      "Mod+D".action = spawn "pcmanfm-qt";
+      "Mod+D".action = spawn "nautilus";
 
       "XF86_AudioRaiseVolume" = sh-allow-locked "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.5";
       "XF86_AudioLowerVolume" = sh-allow-locked "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-";
