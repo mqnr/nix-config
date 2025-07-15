@@ -7,7 +7,7 @@
     settings = {
       command = "fish";
       font-family = "Aporetic Sans Mono";
-      font-size = 16;
+      font-size = 18;
       background-opacity = 0.9;
     };
   };
