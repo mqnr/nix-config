@@ -25,6 +25,7 @@
     discord        # Messaging platform
     discord-ptb    # Public Test Build
     discord-canary # Bleeding edge
+    thunderbird    # Email client
 
     # System utilities
     file          # File type identifier
