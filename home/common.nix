@@ -55,9 +55,10 @@
     libreoffice-qt6-fresh # LibreOffice
 
     # Browsers
-    firefox            # Browser by Mozilla
-    librewolf          # Firefox fork
-    google-chrome      # Propietary browser by Google
+    brave         # Privacy-focused Chromium-based browser  
+    firefox       # Browser by Mozilla
+    librewolf     # Firefox fork
+    google-chrome # Propietary browser by Google
   ];
 
   programs.home-manager.enable = true;
