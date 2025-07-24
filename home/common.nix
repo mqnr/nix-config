@@ -6,14 +6,12 @@
     ../modules/common/ssh.nix
     ../modules/common/fish.nix
     ../modules/common/direnv.nix
-    ../modules/common/firefox.nix
     ../modules/common/ghostty.nix
     ../modules/common/vscode.nix
     ../modules/common/nushell.nix
     ../modules/common/bat.nix
     ../modules/common/helix.nix
     ../modules/common/fonts.nix
-    ../modules/common/librewolf.nix
     ../modules/common/shell.nix
 
     ../lib/location.nix
@@ -56,8 +54,10 @@
     # Office suite
     libreoffice-qt6-fresh # LibreOffice
 
-    # Other
-    google-chrome      # Popular propietary browser
+    # Browsers
+    firefox            # Browser by Mozilla
+    librewolf          # Firefox fork
+    google-chrome      # Propietary browser by Google
   ];
 
   programs.home-manager.enable = true;
