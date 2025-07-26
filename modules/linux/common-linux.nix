@@ -3,7 +3,6 @@
 {
   imports = [
     ./greetd-sys.nix
-    ./niri/xdg.nix
   ];
 
   boot.supportedFilesystems = [ "ntfs" ];
