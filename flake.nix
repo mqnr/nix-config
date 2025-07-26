@@ -15,61 +15,72 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, niri, ... }:
-  let
-    # --- Configuration ---
-    username = "martin";
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      home-manager,
+      niri,
+      ...
+    }:
+    let
+      # --- Configuration ---
+      username = "martin";
 
-    # shared special args for all modules
-    specialArgs = {
-      inherit inputs username;
-    };
+      # shared special args for all modules
+      specialArgs = { inherit inputs username; };
 
-    # helper to create system configurationsx
-    mkSystem = { host, system }:
-      let
-        systemBuilder = nixpkgs.lib.nixosSystem;
+      # helper to create system configurationsx
+      mkSystem =
+        { host, system }:
+        let
+          systemBuilder = nixpkgs.lib.nixosSystem;
 
-        homeManagerModule = home-manager.nixosModules.home-manager;
+          homeManagerModule = home-manager.nixosModules.home-manager;
 
-        systemModules = [ ./modules/linux/common-linux.nix ];
-      in
-      systemBuilder {
-        inherit system specialArgs;
-        modules = systemModules ++ [
-          ./modules/common/common.nix
+          systemModules = [ ./modules/linux/common-linux.nix ];
+        in
+        systemBuilder {
+          inherit system specialArgs;
+          modules = systemModules ++ [
+            ./modules/common/common.nix
 
-          ({pkgs, ...}: {
-            programs.niri.enable = true;
-            programs.niri.package = pkgs.niri;
-            nixpkgs.overlays = [ niri.overlays.niri ];
-          })
+            (
+              { pkgs, ... }:
+              {
+                programs.niri.enable = true;
+                programs.niri.package = pkgs.niri;
+                nixpkgs.overlays = [ niri.overlays.niri ];
+              }
+            )
 
-          (./hosts/nixos + "/${host}")
+            (./hosts/nixos + "/${host}")
 
-          niri.nixosModules.niri
+            niri.nixosModules.niri
 
-          homeManagerModule
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.${username} = import (./home + "/${host}.nix");
-              extraSpecialArgs = specialArgs // { inherit host; };
-            };
-          }
+            homeManagerModule
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.${username} = import (./home + "/${host}.nix");
+                extraSpecialArgs = specialArgs // {
+                  inherit host;
+                };
+              };
+            }
 
-          ./lib/location.nix
-          ./modules/common/location-private.nix
-        ];
+            ./lib/location.nix
+            ./modules/common/location-private.nix
+          ];
+        };
+    in
+    {
+      nixosConfigurations = {
+        tigris = mkSystem {
+          host = "tigris";
+          system = "x86_64-linux";
+        };
       };
-  in
-  {
-    nixosConfigurations = {
-      tigris = mkSystem {
-        host = "tigris";
-        system = "x86_64-linux";
-      };
     };
-  };
 }
