@@ -5,7 +5,6 @@
     ../modules/linux/qt.nix
     ../modules/linux/gtk.nix
     ../modules/common/mpv.nix
-    ../modules/linux/sfwbar
     ../modules/linux/mako.nix
     ../modules/linux/mime.nix
     ../modules/linux/dconf.nix
