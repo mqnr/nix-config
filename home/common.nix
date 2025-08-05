@@ -13,9 +13,6 @@
     ../modules/common/helix.nix
     ../modules/common/fonts.nix
     ../modules/common/shell.nix
-
-    ../lib/location.nix
-    ../modules/common/location-private.nix
   ];
 
   home.packages = with pkgs; [

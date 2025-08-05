@@ -20,9 +20,6 @@
   networking.hostName = "tigris";
   networking.networkmanager.enable = true;
 
-  # Set time zone
-  time.timeZone = config.location.timezone;
-
   # Services to enable:
 
   services.tlp.enable = true;

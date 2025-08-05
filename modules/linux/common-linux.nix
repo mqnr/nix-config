@@ -68,4 +68,9 @@
   security.polkit.enable = true;
 
   services.tumbler.enable = true;
+
+  services.geoclue2.enable = true;
+
+  # Set timezone dynamically
+  services.automatic-timezoned.enable = true;
 }

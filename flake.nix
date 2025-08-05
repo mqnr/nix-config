@@ -69,9 +69,6 @@
                 };
               };
             }
-
-            ./lib/location.nix
-            ./modules/common/location-private.nix
           ];
         };
     in
