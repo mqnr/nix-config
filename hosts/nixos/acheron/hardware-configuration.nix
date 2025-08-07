@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   modulesPath,
   ...
 }:
@@ -86,7 +85,3 @@
   hardware.enableAllFirmware = true;
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
-
-# environment.etc.crypttab.text = ''
-#   cryptdata UUID=f5924ffc-6d3f-4411-b68f-dc6e98babc34 /etc/keys/data.key
-# '';
