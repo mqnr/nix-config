@@ -16,18 +16,19 @@
     ../modules/linux/file-manager.nix
   ];
 
-  home.packages = with pkgs; [
+  home.packages = [
     # Media and graphics
-    viewnior # Image viewer
-    kdePackages.okular # Document viewer
+    pkgs.viewnior # Image viewer
+    pkgs.kdePackages.okular # Document viewer
+    pkgs.haruna # Media player
 
     # Desktop
-    swayidle # Idle management
-    swaylock # Screen locker
-    xwayland-satellite # Xwayland integration for compositors lacking it
-    wayland-logout # Utility to kill Wayland compositors
+    pkgs.swayidle # Idle management
+    pkgs.swaylock # Screen locker
+    pkgs.xwayland-satellite # Xwayland integration for compositors lacking it
+    pkgs.wayland-logout # Utility to kill Wayland compositors
 
     # Other
-    papirus-icon-theme # Icon theme
+    pkgs.papirus-icon-theme # Icon theme
   ];
 }
