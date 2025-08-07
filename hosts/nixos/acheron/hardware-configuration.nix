@@ -29,18 +29,13 @@
         "noatime"
       ];
 
-      mkBtrfsSubvol =
-        isRoot: subvol: additionalOptions:
-        let
-          target = if isRoot then "ROOT" else "DATA";
-        in
-        {
-          device = "/dev/disk/by-label/NIXOS_${target}";
-          fsType = "btrfs";
-          options = [ "subvol=${subvol}" ] ++ additionalOptions;
-        };
-      mkBtrfsSubvolRoot = mkBtrfsSubvol true;
-      mkBtrfsSubvolData = mkBtrfsSubvol false;
+      mkBtrfsSubvol = device: subvol: additionalOptions: {
+        inherit device;
+        fsType = "btrfs";
+        options = [ "subvol=${subvol}" ] ++ additionalOptions;
+      };
+      mkBtrfsSubvolRoot = mkBtrfsSubvol "/dev/disk/by-label/NIXOS_ROOT";
+      mkBtrfsSubvolData = mkBtrfsSubvol "/dev/disk/by-label/NIXOS_DATA";
     in
     {
       "/" = mkBtrfsSubvolRoot "@root" btrfsOptions;
