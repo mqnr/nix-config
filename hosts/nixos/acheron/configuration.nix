@@ -9,6 +9,11 @@
   networking.hostName = "acheron";
   networking.networkmanager.enable = true;
 
+  # NVIDIA
+  hardware.graphics.enable = true;
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia.open = true;
+
   # In short, don't touch this.
   system.stateVersion = "25.05";
 }
