@@ -40,21 +40,8 @@
     yt-dlp      # Video downloader
     qbittorrent # Torrent client
 
-    # Development
-    jetbrains.idea-ultimate # Java development
-    jetbrains.phpstorm      # PHP development
-    jetbrains.rider         # .NET development
-    jetbrains.rust-rover    # Rust development
-    nil                     # Nix language server
-    postman
-
-    # Office suite
-    libreoffice-qt6-fresh # LibreOffice
-
     # Browsers
-    brave         # Privacy-focused Chromium-based browser  
     firefox       # Browser by Mozilla
-    librewolf     # Firefox fork
     google-chrome # Propietary browser by Google
   ];
 

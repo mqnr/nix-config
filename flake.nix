@@ -74,6 +74,11 @@
     in
     {
       nixosConfigurations = {
+        acheron = mkSystem {
+          host = "acheron";
+          system = "x86_64-linux";
+        };
+
         tigris = mkSystem {
           host = "tigris";
           system = "x86_64-linux";

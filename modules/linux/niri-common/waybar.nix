@@ -8,49 +8,69 @@
     settings.mainBar = {
       layer = "top";
 
-      margin-left  = 8;
+      margin-left = 8;
       margin-right = 8;
 
       modules-left = [ "niri/workspaces" ];
 
       "niri/workspaces" = {
-        format       = "{icon}";
+        format = "{icon}";
         format-icons = {
-          active  = " ";
+          active = " ";
           default = " ";
         };
       };
 
-      modules-right = ["tray" "battery" "pulseaudio" "clock" ];
+      modules-right = [
+        "tray"
+        "battery"
+        "pulseaudio"
+        "clock"
+      ];
 
       pulseaudio = {
-        format       = "{format_source} {icon} {volume}%";
+        format = "{format_source} {icon} {volume}%";
         format-muted = "{format_source} 󰸈 {volume}%";
 
-        format-bluetooth       = "{format_source} 󰋋 󰂯 {volume}%";
+        format-bluetooth = "{format_source} 󰋋 󰂯 {volume}%";
         format-bluetooth-muted = "{format_source} 󰟎 󰂯 {volume}%";
 
-        format-source       = "󰍬";
+        format-source = "󰍬";
         format-source-muted = "󰍭";
 
-        format-icons.default = [ "󰕿" "󰖀" "󰕾" ];
+        format-icons.default = [
+          "󰕿"
+          "󰖀"
+          "󰕾"
+        ];
       };
 
       battery = {
-        format          = "{icon} {capacity}%";
+        format = "{icon} {capacity}%";
         format-charging = "󰂄 {capacity}%";
-        format-plugged  = "󰂄 {capacity}%";
+        format-plugged = "󰂄 {capacity}%";
 
-        format-icons    = [ "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
+        format-icons = [
+          "󰁺"
+          "󰁻"
+          "󰁼"
+          "󰁽"
+          "󰁾"
+          "󰁿"
+          "󰂀"
+          "󰂁"
+          "󰂂"
+          "󰁹"
+        ];
 
         states = {
-          warning  = 30;
+          warning = 30;
           critical = 15;
         };
       };
 
       clock = {
-        format         = "{:%a %Y-%m-%d %H:%M}";
+        format = "{:%a %Y-%m-%d %H:%M}";
         tooltip-format = "<tt><small>{calendar}</small></tt>";
 
         calendar = {
@@ -64,8 +84,8 @@
       };
 
       tray = {
-        icon-size         = 17;
-        spacing           = 10;
+        icon-size = 17;
+        spacing = 10;
         reverse-direction = true;
       };
     };
