@@ -30,7 +30,7 @@
     fd            # Modern alternative to 'find'
     ripgrep       # Modern alternative to 'grep'
     fzf           # Fuzzy finder
-    age           # Encryption tool
+    rage          # Encryption tool
 
     # Media and graphics
     ffmpeg                 # Media manipulation suite
