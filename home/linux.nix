@@ -18,7 +18,7 @@
 
   home.packages = [
     # Media and graphics
-    pkgs.viewnior # Image viewer
+    pkgs.loupe # Image viewer
     pkgs.kdePackages.okular # Document viewer
     pkgs.haruna # Media player
 
