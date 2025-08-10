@@ -19,6 +19,8 @@
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia.open = true;
 
+  environment.systemPackages = [ pkgs.bubblewrap ];
+
   # In short, don't touch this.
   system.stateVersion = "25.05";
 }
