@@ -10,6 +10,7 @@
   home = {
     username = "martin";
     homeDirectory = "/home/martin";
+    packages = [ pkgs.steam ];
     stateVersion = "25.05";
   };
 }
