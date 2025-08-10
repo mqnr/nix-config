@@ -29,6 +29,7 @@
     killall       # Kill all
     fd            # Modern alternative to 'find'
     ripgrep       # Modern alternative to 'grep'
+    jc            # Converts many outputs to JSON
     fzf           # Fuzzy finder
     rage          # Encryption tool
 
