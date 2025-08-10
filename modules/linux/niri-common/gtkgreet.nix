@@ -1,5 +1,5 @@
 { pkgs, ... }:
 
 {
-  home.packages = [ pkgs.greetd.gtkgreet ];
+  home.packages = [ pkgs.gtkgreet ];
 }

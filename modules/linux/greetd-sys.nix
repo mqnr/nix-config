@@ -27,7 +27,7 @@ let
       skip-at-startup
     }
 
-    spawn-at-startup "sh" "-c" "${pkgs.greetd.gtkgreet}/bin/gtkgreet -l && ${pkgs.wayland-logout}/bin/wayland-logout"
+    spawn-at-startup "sh" "-c" "${pkgs.gtkgreet}/bin/gtkgreet -l && ${pkgs.wayland-logout}/bin/wayland-logout"
   '';
 in
 {
