@@ -21,6 +21,7 @@
     pkgs.loupe # Image viewer
     pkgs.kdePackages.okular # Document viewer
     pkgs.haruna # Media player
+    pkgs.gimp3-with-plugins # Graphics editor
 
     # Desktop
     pkgs.swayidle # Idle management
