@@ -39,13 +39,13 @@ in
       mkBtrfsSubvolRoot = mkBtrfsSubvol "/dev/disk/by-label/NIXOS_ROOT";
       mkBtrfsSubvolData = mkBtrfsSubvol "/dev/disk/by-label/NIXOS_DATA";
 
-      mkBindMount =
-        directory:
-        lib.nameValuePair "/home/martin/${directory}" {
-          device = "/data/${directory}";
-          fsType = "none";
-          options = [ "bind" ];
-        };
+      mkBindMount = device: {
+        inherit device;
+        fsType = "none";
+        options = [ "bind" ];
+      };
+      mkBindMountDataPair =
+        directory: lib.nameValuePair "/home/martin/${directory}" (mkBindMount "/data/${directory}");
     in
     {
       "/" = mkBtrfsSubvolRoot "@root" btrfsOptions;
@@ -66,7 +66,7 @@ in
       };
     }
     // (
-      map mkBindMount [
+      map mkBindMountDataPair [
         "Documents"
         "Media"
         "Music"
