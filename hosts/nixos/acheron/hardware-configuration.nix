@@ -65,14 +65,16 @@ in
         ];
       };
     }
-    // map mkBindMount [
-      "Documents"
-      "Media"
-      "Music"
-      "Pictures"
-      "Videos"
-    ]
-    |> listToAttrs;
+    // (
+      map mkBindMount [
+        "Documents"
+        "Media"
+        "Music"
+        "Pictures"
+        "Videos"
+      ]
+      |> listToAttrs
+    );
 
   boot.initrd.luks.devices = {
     cryptroot = {
