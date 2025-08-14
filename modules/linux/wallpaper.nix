@@ -3,7 +3,15 @@
 let
   set-wallpaper = pkgs.writeScriptBin "set-wallpaper" ''
     #!${pkgs.nushell}/bin/nu
-    let dir = $env.HOME | path join ".local" "share" "wallpapers-directory" | open | str trim
+    let default_dir = $env.HOME | path join "Pictures" "Wallpapers"
+    let dir = try {
+      $env.HOME
+      | path join ".local" "share" "wallpapers-directory"
+      | open
+      | str trim
+    } catch {
+      $default_dir
+    }
     let choice = glob $"($dir)/**/*" --no-dir
       | path relative-to $dir
       | sort
