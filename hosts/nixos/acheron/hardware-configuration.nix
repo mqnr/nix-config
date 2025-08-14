@@ -63,7 +63,7 @@
     };
     cryptdata = {
       device = "/dev/disk/by-partlabel/DATA_LUKS";
-      keyFile = "/etc/keys/data.key";
+      keyFile = "/sysroot/etc/keys/data.key";
     };
   };
 
