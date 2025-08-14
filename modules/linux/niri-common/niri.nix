@@ -116,7 +116,7 @@
         "Alt+F3".action = spawn "fuzzel";
         "Super+Alt+L".action = spawn "swaylock";
 
-        "Mod+D".action = spawn "nautilus";
+        "Mod+C".action = spawn "nautilus";
 
         "XF86_AudioRaiseVolume" = sh-allow-locked "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.5";
         "XF86_AudioLowerVolume" = sh-allow-locked "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-";
@@ -145,10 +145,10 @@
         "Mod+A".action = focus-window-or-workspace-down;
         "Mod+O".action = focus-window-or-workspace-up;
         "Mod+E".action = focus-column-right;
-        "Mod+N".action = focus-column-left;
-        "Mod+R".action = focus-window-or-workspace-down;
-        "Mod+L".action = focus-window-or-workspace-up;
-        "Mod+T".action = focus-column-right;
+        "Mod+R".action = focus-column-left;
+        "Mod+T".action = focus-window-or-workspace-down;
+        "Mod+D".action = focus-window-or-workspace-up;
+        "Mod+S".action = focus-column-right;
 
         "Mod+Shift+Left".action = move-column-left;
         "Mod+Shift+Down".action = move-window-down;
@@ -158,10 +158,10 @@
         "Mod+Shift+A".action = move-window-down;
         "Mod+Shift+O".action = move-window-up;
         "Mod+Shift+E".action = move-column-right;
-        "Mod+Shift+N".action = move-column-left;
-        "Mod+Shift+R".action = move-window-down;
-        "Mod+Shift+L".action = move-window-up;
-        "Mod+Shift+T".action = move-column-right;
+        "Mod+Shift+R".action = move-column-left;
+        "Mod+Shift+T".action = move-window-down;
+        "Mod+Shift+D".action = move-window-up;
+        "Mod+Shift+S".action = move-column-right;
 
         "Mod+Home".action = focus-column-first;
         "Mod+End".action = focus-column-last;
@@ -176,10 +176,10 @@
         "Mod+Ctrl+A".action = focus-monitor-down;
         "Mod+Ctrl+O".action = focus-monitor-up;
         "Mod+Ctrl+E".action = focus-monitor-right;
-        "Mod+Ctrl+N".action = focus-monitor-left;
-        "Mod+Ctrl+R".action = focus-monitor-down;
-        "Mod+Ctrl+L".action = focus-monitor-up;
-        "Mod+Ctrl+T".action = focus-monitor-right;
+        "Mod+Ctrl+R".action = focus-monitor-left;
+        "Mod+Ctrl+T".action = focus-monitor-down;
+        "Mod+Ctrl+D".action = focus-monitor-up;
+        "Mod+Ctrl+S".action = focus-monitor-right;
         "Mod+Ctrl+Shift+Left".action = move-column-to-monitor-left;
         "Mod+Ctrl+Shift+Down".action = move-column-to-monitor-down;
         "Mod+Ctrl+Shift+Up".action = move-column-to-monitor-up;
@@ -188,10 +188,10 @@
         "Mod+Ctrl+Shift+A".action = move-column-to-monitor-down;
         "Mod+Ctrl+Shift+O".action = move-column-to-monitor-up;
         "Mod+Ctrl+Shift+E".action = move-column-to-monitor-right;
-        "Mod+Ctrl+Shift+N".action = move-column-to-monitor-left;
-        "Mod+Ctrl+Shift+R".action = move-column-to-monitor-down;
-        "Mod+Ctrl+Shift+L".action = move-column-to-monitor-up;
-        "Mod+Ctrl+Shift+T".action = move-column-to-monitor-right;
+        "Mod+Ctrl+Shift+R".action = move-column-to-monitor-left;
+        "Mod+Ctrl+Shift+T".action = move-column-to-monitor-down;
+        "Mod+Ctrl+Shift+D".action = move-column-to-monitor-up;
+        "Mod+Ctrl+Shift+S".action = move-column-to-monitor-right;
 
         "Mod+Page_Down".action = focus-workspace-down;
         "Mod+Page_Up".action = focus-workspace-up;
@@ -241,9 +241,9 @@
         "Mod+Apostrophe".action = consume-window-into-column;
         "Mod+Semicolon".action = expel-window-from-column;
 
-        "Mod+C".action = switch-preset-column-width;
-        "Mod+Shift+C".action = switch-preset-window-height;
-        "Mod+Ctrl+C".action = reset-window-height;
+        "Mod+L".action = switch-preset-column-width;
+        "Mod+Shift+L".action = switch-preset-window-height;
+        "Mod+Ctrl+L".action = reset-window-height;
         "Mod+F".action = maximize-column;
         "Mod+Shift+F".action = fullscreen-window;
 
@@ -273,7 +273,7 @@
           allow-inhibiting = false;
         };
 
-        "Mod+Shift+D".action = quit;
+        "Mod+Shift+B".action = quit;
         "Ctrl+Alt+Delete".action = quit;
 
         "Mod+Shift+P".action = power-off-monitors;
