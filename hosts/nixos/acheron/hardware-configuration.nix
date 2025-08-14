@@ -4,7 +4,9 @@
   modulesPath,
   ...
 }:
-
+let
+  inherit (builtins) map listToAttrs;
+in
 {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
@@ -36,6 +38,14 @@
       };
       mkBtrfsSubvolRoot = mkBtrfsSubvol "/dev/disk/by-label/NIXOS_ROOT";
       mkBtrfsSubvolData = mkBtrfsSubvol "/dev/disk/by-label/NIXOS_DATA";
+
+      mkBindMount =
+        directory:
+        lib.nameValuePair "/home/martin/${directory}" {
+          device = "/data/${directory}";
+          fsType = "none";
+          options = [ "bind" ];
+        };
     in
     {
       "/" = mkBtrfsSubvolRoot "@root" btrfsOptions;
@@ -54,7 +64,15 @@
           "dmask=0022"
         ];
       };
-    };
+    }
+    // map mkBindMount [
+      "Documents"
+      "Media"
+      "Music"
+      "Pictures"
+      "Videos"
+    ]
+    |> listToAttrs;
 
   boot.initrd.luks.devices = {
     cryptroot = {
