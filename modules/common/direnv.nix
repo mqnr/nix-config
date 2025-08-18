@@ -1,8 +1,12 @@
-{ ... }:
+{ config, lib, ... }:
 
-{
-  programs.direnv = {
-    enable = true;
-    nix-direnv.enable = true;
-  };
+lib.mkIf config.isPC {
+  home-manager.sharedModules = [
+    {
+      programs.direnv = {
+        enable = true;
+        nix-direnv.enable = true;
+      };
+    }
+  ];
 }

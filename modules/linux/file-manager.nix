@@ -1,20 +1,31 @@
-{ pkgs, ... }:
-
 {
-  home.packages = with pkgs; [
-    nautilus
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
-    lxde.lxmenu-data
-    shared-mime-info
+lib.mkIf config.isPC {
+  services.tumbler.enable = true;
 
-    evince
-    ffmpegthumbnailer
+  home-manager.sharedModules = [
+    {
+      home.packages = with pkgs; [
+        nautilus
 
-    lxqt.lxqt-archiver
+        lxde.lxmenu-data
+        shared-mime-info
 
-    unzip
-    p7zip
-    unrar
-    zip
+        evince
+        ffmpegthumbnailer
+
+        lxqt.lxqt-archiver
+
+        unzip
+        p7zip
+        unrar
+        zip
+      ];
+    }
   ];
 }

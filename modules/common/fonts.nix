@@ -1,11 +1,19 @@
-{ pkgs, ... }:
-
 {
-  home.packages = [
-    pkgs.aporetic
-    pkgs.nerd-fonts.jetbrains-mono
-  ];
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
-  # TODO: make this Linux-only maybe?
-  fonts.fontconfig.enable = true;
+lib.mkIf config.isPC {
+  home-manager.sharedModules = [
+    {
+      home.packages = [
+        pkgs.aporetic
+        pkgs.nerd-fonts.jetbrains-mono
+      ];
+    }
+
+    (lib.mkIf config.isLinux { fonts.fontconfig.enable = true; })
+  ];
 }

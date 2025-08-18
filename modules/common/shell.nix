@@ -1,14 +1,20 @@
-{ ... }:
+{ config, lib, ... }:
 
 {
-  home.shellAliases = {
-    g = "git";
-    o = "bat --plain";
-    p = "bat --plain --paging=auto";
+  home-manager.sharedModules = [
+    {
+      home.shellAliases = {
+        g = "git";
 
-    "..." = "cd ../..";
-    "...." = "cd ../../..";
-    "....." = "cd ../../../..";
-    "......" = "cd ../../../../..";
-  };
+        "..." = "cd ../..";
+        "...." = "cd ../../..";
+        "....." = "cd ../../../..";
+        "......" = "cd ../../../../..";
+      }
+      // lib.optionalAttrs config.isPC {
+        o = "bat --plain";
+        p = "bat --plain --paging=auto";
+      };
+    }
+  ];
 }

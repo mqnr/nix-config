@@ -1,5 +1,3 @@
-{ ... }:
+{ config, lib, ... }:
 
-{
-  xdg.userDirs.enable = true;
-}
+lib.mkIf config.isPC { home-manager.sharedModules = [ { xdg.userDirs.enable = true; } ]; }

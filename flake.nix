@@ -28,15 +28,17 @@
       self,
       nixpkgs,
       home-manager,
-      niri,
       ...
     }:
     let
       # --- Configuration ---
+      # TODO: get this another way
       username = "martin";
 
+      lib = nixpkgs.lib.extend (import ./lib/util.nix) // home-manager.lib // inputs.niri.lib;
+
       # shared special args for all modules
-      specialArgs = { inherit inputs username; };
+      specialArgs = { inherit inputs lib username; };
 
       # helper to create system configurationsx
       mkSystem =
@@ -45,38 +47,29 @@
           systemBuilder = nixpkgs.lib.nixosSystem;
 
           homeManagerModule = home-manager.nixosModules.home-manager;
-
-          systemModules = [ ./modules/linux/common-linux.nix ];
         in
         systemBuilder {
           inherit system specialArgs;
-          modules = systemModules ++ [
-            ./modules/common/common.nix
+          modules = [
+            ./lib/options.nix
+
+            ./modules/common
+            ./modules/linux # TODO: do something different
 
             (
               { pkgs, ... }:
               {
                 programs.niri.enable = true;
                 programs.niri.package = pkgs.niri;
-                nixpkgs.overlays = [ niri.overlays.niri ];
+                nixpkgs.overlays = [ inputs.niri.overlays.niri ];
               }
             )
 
-            (./hosts/nixos + "/${host}")
+            (./hosts + "/${host}")
 
-            niri.nixosModules.niri
+            inputs.niri.nixosModules.niri
 
             homeManagerModule
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                users.${username} = import (./home + "/${host}.nix");
-                extraSpecialArgs = specialArgs // {
-                  inherit host;
-                };
-              };
-            }
           ];
         };
     in

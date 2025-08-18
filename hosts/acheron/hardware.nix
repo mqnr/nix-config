@@ -4,9 +4,6 @@
   modulesPath,
   ...
 }:
-let
-  inherit (builtins) map listToAttrs;
-in
 {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
@@ -66,14 +63,14 @@ in
       };
     }
     // (
-      map mkBindMountDataPair [
+      lib.map mkBindMountDataPair [
         "Documents"
         "Media"
         "Music"
         "Pictures"
         "Videos"
       ]
-      |> listToAttrs
+      |> lib.listToAttrs
     );
 
   boot.initrd.luks.devices = {

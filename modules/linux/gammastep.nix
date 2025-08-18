@@ -1,9 +1,16 @@
 { config, lib, ... }:
 
-{
-  services.gammastep = {
-    enable = true;
-    provider = "geoclue2";
-    temperature = { day = 6500; night = 3500; };
-  };
+lib.mkIf config.isPC {
+  home-manager.sharedModules = [
+    {
+      services.gammastep = {
+        enable = true;
+        provider = "geoclue2";
+        temperature = {
+          day = 6500;
+          night = 3500;
+        };
+      };
+    }
+  ];
 }

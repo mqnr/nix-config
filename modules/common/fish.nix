@@ -1,12 +1,16 @@
-{ ... }:
+{ config, lib, ... }:
 
-{
-  programs.fish = {
-    enable = true;
+lib.mkIf config.isPC {
+  home-manager.sharedModules = [
+    {
+      programs.fish = {
+        enable = true;
 
-    interactiveShellInit = ''
-      set fish_greeting # Disable greeting
-      direnv hook fish | source
-    '';
-  };
+        interactiveShellInit = ''
+          set fish_greeting # Disable greeting
+          direnv hook fish | source
+        '';
+      };
+    }
+  ];
 }

@@ -1,9 +1,13 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
-{
-  qt = {
-    enable = true;
-    platformTheme.name = "gtk";
-    style.name = "adwaita-dark";
-  };
+lib.mkIf config.isPC {
+  home-manager.sharedModules = [
+    {
+      qt = {
+        enable = true;
+        platformTheme.name = "gtk";
+        style.name = "adwaita-dark";
+      };
+    }
+  ];
 }

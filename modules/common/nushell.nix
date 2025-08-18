@@ -1,9 +1,12 @@
-{ ... }:
+{ config, lib, ... }:
 
-{
-  programs.nushell = {
-    enable = true;
-
-    configFile.source = ./config.nu;
-  };
+lib.mkIf config.isPC {
+  home-manager.sharedModules = [
+    {
+      programs.nushell = {
+        enable = true;
+        configFile.source = ./config.nu;
+      };
+    }
+  ];
 }

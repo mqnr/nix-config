@@ -1,57 +1,65 @@
-{ pkgs, ... }:
-
 {
-  # TODO: move this somewhere else?
-  home.sessionVariables =
-    let
-      browserPath = "${pkgs.firefox}/bin/firefox";
-    in
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+
+lib.mkIf config.isPC {
+  home-manager.sharedModules = [
     {
-      BROWSER = browserPath;
-      DEFAULT_BROWSER = browserPath;
-    };
+      home.sessionVariables =
+        let
+          browserPath = "${pkgs.firefox}/bin/firefox";
+        in
+        {
+          BROWSER = browserPath;
+          DEFAULT_BROWSER = browserPath;
+        };
 
-  xdg.mimeApps = {
-    enable = true;
-    defaultApplications =
-      let
-        browser = "firefox.desktop";
-        documentViewer = "org.kde.okular.desktop";
-        imageViewer = "org.gnome.Loupe.desktop";
-        videoPlayer = "org.kde.haruna.desktop";
-      in
-      {
-        # Default browser
-        "text/html" = browser;
-        "x-scheme-handler/http" = browser;
-        "x-scheme-handler/https" = browser;
-        "x-scheme-handler/about" = browser;
-        "x-scheme-handler/unknown" = browser;
+      xdg.mimeApps = {
+        enable = true;
+        defaultApplications =
+          let
+            browser = "firefox.desktop";
+            documentViewer = "org.kde.okular.desktop";
+            imageViewer = "org.gnome.Loupe.desktop";
+            videoPlayer = "org.kde.haruna.desktop";
+          in
+          {
+            # Default browser
+            "text/html" = browser;
+            "x-scheme-handler/http" = browser;
+            "x-scheme-handler/https" = browser;
+            "x-scheme-handler/about" = browser;
+            "x-scheme-handler/unknown" = browser;
 
-        # PDF files in Okular
-        "application/pdf" = documentViewer;
-        "application/x-pdf" = documentViewer;
+            # PDF files in Okular
+            "application/pdf" = documentViewer;
+            "application/x-pdf" = documentViewer;
 
-        # Image files in Viewnior
-        "image/jpeg" = imageViewer;
-        "image/jpg" = imageViewer;
-        "image/png" = imageViewer;
-        "image/gif" = imageViewer;
-        "image/webp" = imageViewer;
-        "image/tiff" = imageViewer;
-        "image/bmp" = imageViewer;
-        "image/svg+xml" = imageViewer;
-        "image/x-icon" = imageViewer;
+            # Image files in Viewnior
+            "image/jpeg" = imageViewer;
+            "image/jpg" = imageViewer;
+            "image/png" = imageViewer;
+            "image/gif" = imageViewer;
+            "image/webp" = imageViewer;
+            "image/tiff" = imageViewer;
+            "image/bmp" = imageViewer;
+            "image/svg+xml" = imageViewer;
+            "image/x-icon" = imageViewer;
 
-        # Video files in Haruna
-        "video/mp4" = videoPlayer;
-        "video/x-msvideo" = videoPlayer; # .avi
-        "video/quicktime" = videoPlayer; # .mov
-        "video/x-matroska" = videoPlayer; # .mkv
-        "video/webm" = videoPlayer;
-        "video/x-flv" = videoPlayer;
-        "video/x-ms-wmv" = videoPlayer;
-        "application/x-matroska" = videoPlayer;
+            # Video files in Haruna
+            "video/mp4" = videoPlayer;
+            "video/x-msvideo" = videoPlayer; # .avi
+            "video/quicktime" = videoPlayer; # .mov
+            "video/x-matroska" = videoPlayer; # .mkv
+            "video/webm" = videoPlayer;
+            "video/x-flv" = videoPlayer;
+            "video/x-ms-wmv" = videoPlayer;
+            "application/x-matroska" = videoPlayer;
+          };
       };
-  };
+    }
+  ];
 }

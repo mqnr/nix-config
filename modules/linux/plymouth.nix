@@ -1,6 +1,11 @@
-{ pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+
+lib.mkIf config.isPC {
   boot = {
     plymouth = {
       enable = true;

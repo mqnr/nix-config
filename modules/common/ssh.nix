@@ -1,12 +1,17 @@
-{lib, ... }:
+{ lib, ... }:
 
+# TODO: do something different with this?
 {
   imports = lib.optional (builtins.pathExists ../../private/ssh.nix) ../../private/ssh.nix;
 
-  programs.ssh = {
-    enable = true;
-    addKeysToAgent = "yes";
-  };
+  home-manager.sharedModules = [
+    {
+      programs.ssh = {
+        enable = true;
+        addKeysToAgent = "yes";
+      };
 
-  services.ssh-agent.enable = true;
+      services.ssh-agent.enable = true;
+    }
+  ];
 }

@@ -1,14 +1,19 @@
-{ ... }:
+{ config, lib, ... }:
 
-{
-  programs.ghostty = {
-    enable = true;
-    enableFishIntegration = true;
-    settings = {
-      command = "fish";
-      font-family = "Aporetic Sans Mono";
-      font-size = 18;
-      background-opacity = 0.9;
-    };
-  };
+lib.mkIf config.isPC {
+  home-manager.sharedModules = [
+    {
+      programs.ghostty = {
+        enable = true;
+        enableFishIntegration = true;
+
+        settings = {
+          command = "fish";
+          font-family = "Aporetic Sans Mono";
+          font-size = 18;
+          background-opacity = 0.9;
+        };
+      };
+    }
+  ];
 }
