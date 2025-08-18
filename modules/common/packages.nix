@@ -61,7 +61,7 @@
           pkgs.jetbrains.phpstorm # PHP development
           pkgs.jetbrains.rider # .NET development
           pkgs.jetbrains.rust-rover # Rust development
-          pkgs.nil # Nix language server
+          pkgs.nixd # Nix language server
           pkgs.postman
         ]
         ++ lib.optionals config.isWork [
