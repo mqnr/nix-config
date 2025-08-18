@@ -3,30 +3,18 @@
 {
   imports = [ ./hardware.nix ];
 
+  username = "martin";
+  hostname = "tigris";
+
   isLaptop = true;
   isDev = true;
   isWork = true;
 
-  os = "linux";
-  hostname = "tigris";
-
   gpu = "amd";
 
-  users.users.martin = {
-    name = "martin";
-    home = "/home/martin";
-    isNormalUser = true;
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "bluetooth"
-      "video"
-    ];
-  };
-
-  home-manager.users.martin.home = {
+  home-manager.users."${config.username}".home = {
     inherit (config.system) stateVersion;
-    homeDirectory = config.users.users.martin.home;
+    homeDirectory = config.users.users."${config.username}".home;
   };
 
   system.stateVersion = "24.11";

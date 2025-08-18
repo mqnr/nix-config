@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, pkgs, lib, ... }:
 let
   mkDerived =
     conditional: description:
@@ -16,17 +16,14 @@ in
     isLaptop = lib.mkEnableOption "laptop configuration";
     isPC = mkDerived (config.isDesktop || config.isLaptop) "Personal computer configuration";
 
-    os = mkEnum [
-      "linux"
-      "darwin"
-    ];
-    isLinux = mkDerived (config.os == "linux") "Linux configuration";
-    isDarwin = mkDerived (config.os == "darwin") "Darwin configuration";
+    isLinux = mkDerived (pkgs.stdenv.isLinux) "Linux configuration";
+    isDarwin = mkDerived (pkgs.stdenv.isDarwin) "Darwin configuration";
 
     isDev = lib.mkEnableOption "developer configuration";
     isWork = lib.mkEnableOption "work configuration";
     isGaming = lib.mkEnableOption "gaming configuration";
 
+    username = lib.mkOption { type = lib.types.str; };
     hostname = lib.mkOption { type = lib.types.str; };
 
     gpu = mkEnum [

@@ -40,13 +40,10 @@
     }:
     let
       # --- Configuration ---
-      # TODO: get this another way
-      username = "martin";
-
       lib = nixpkgs.lib.extend (import ./lib/util.nix) // home-manager.lib;
 
       # shared special args for all modules
-      specialArgs = { inherit inputs lib username; };
+      specialArgs = { inherit inputs lib; };
 
       # helper to create system configurationsx
       mkSystem =

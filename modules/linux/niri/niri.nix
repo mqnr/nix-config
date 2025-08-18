@@ -1,4 +1,4 @@
-{ config, lib, username, ... }:
+{ config, lib, ... }:
 
 lib.mkIf config.isPC {
   home-manager.sharedModules = [
@@ -50,7 +50,7 @@ lib.mkIf config.isPC {
         };
 
         binds =
-          with config.home-manager.users."${username}".lib.niri.actions;
+          with config.home-manager.users."${config.username}".lib.niri.actions;
           let
             sh = spawn "sh" "-c";
             sh-allow-locked = command: {
