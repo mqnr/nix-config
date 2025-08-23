@@ -60,8 +60,9 @@
           pkgs.jetbrains.idea-ultimate # Java development
           pkgs.jetbrains.phpstorm # PHP development
           pkgs.jetbrains.rider # .NET development
-          pkgs.jetbrains.rust-rover # Rust development
+          pkgs.nixfmt-rfc-style # Nix formatter
           pkgs.nixd # Nix language server
+          pkgs.basedpyright # Python language server
           pkgs.postman
         ]
         ++ lib.optionals config.isWork [
