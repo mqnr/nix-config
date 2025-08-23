@@ -8,7 +8,12 @@
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
 
-    builders-use-substitutes = true;
+    experimental-features = [
+      "nix-command"
+      "flakes"
+      "pipe-operators"
+    ];
+
     trusted-users = [
       "root"
       "@build"
@@ -27,6 +32,11 @@
 
     niri = {
       url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    emacs-overlay = {
+      url = "github:nix-community/emacs-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -69,6 +79,33 @@
                 nixpkgs.overlays = [ inputs.niri.overlays.niri ];
               }
             )
+
+            { nixpkgs.config.allowUnfree = true; }
+
+            {
+              nix.settings = {
+                extra-substituters = [ "https://nix-community.cachix.org" ];
+
+                extra-trusted-public-keys = [
+                  "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+                ];
+
+                experimental-features = [
+                  "nix-command"
+                  "flakes"
+                  "pipe-operators"
+                ];
+
+                trusted-users = [
+                  "root"
+                  "@build"
+                  "@wheel"
+                  "@admin"
+                ];
+              };
+            }
+
+            { nixpkgs.overlays = [ inputs.emacs-overlay.overlays.default ]; }
 
             (./hosts + "/${host}")
 
