@@ -22,11 +22,6 @@ lib.mkIf config.isPC {
           animations.slowdown = 0.5;
 
           spawn-at-startup = lib.map (c: { command = c; }) [
-            [
-              "sh"
-              "-c"
-              "swaybg -i ~/.local/share/background"
-            ]
             [ "xwayland-satellite" ]
             [
               "ghostty"

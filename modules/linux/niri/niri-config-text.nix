@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, ... }:
 
 let
   baseConfig = ''
@@ -199,7 +199,6 @@ let
         "XF86_MonBrightnessDown" allow-when-locked=true { spawn "sh" "-c" "brightnessctl set 5%-"; }
         "XF86_MonBrightnessUp" allow-when-locked=true { spawn "sh" "-c" "brightnessctl set +5%"; }
     }
-    spawn-at-startup "sh" "-c" "swaybg -i ~/.local/share/background"
     spawn-at-startup "xwayland-satellite"
     spawn-at-startup "ghostty" "--gtk-single-instance=true" "--quit-after-last-window-closed=false" "--initial-window=false"
     animations { slowdown 0.500000; }
