@@ -1,5 +1,34 @@
 ;;; -*- lexical-binding: t; -*-
 
+(defun mqnr/apply-theme (theme)
+  "Disable active themes and load THEME (a symbol).
+When called interactively, prompt for THEME with completion."
+  (interactive
+   (list (intern (completing-read "Apply custom theme: "
+                                  (mapcar #'symbol-name
+                                          (custom-available-themes))))))
+  (mapc #'disable-theme custom-enabled-themes)
+  (load-theme theme t))
+
+(defun mqnr/load-theme-from-json (file)
+  "Read JSON FILE and apply settings. Do nothing if FILE does not exist."
+  (when (file-exists-p file)
+    (require 'json)
+    (let* ((json-object-type 'alist)
+           (settings (with-temp-buffer
+                       (insert-file-contents file)
+                       (json-read-from-string (buffer-string)))))
+      (dolist (pair settings)
+        (let ((key (car pair))
+              (value (cdr pair)))
+          (pcase key
+            ('theme
+             (mqnr/apply-theme (intern value)))
+            (_
+             (set-frame-parameter nil key value)
+             (assq-delete-all key default-frame-alist)
+             (add-to-list 'default-frame-alist (cons key value)))))))))
+
 ;; UI
 (use-package emacs
   :config
@@ -14,12 +43,8 @@
   (global-hl-line-mode 1)
   (setq inhibit-startup-screen t
 	initial-scratch-message nil)
-  (add-to-list 'default-frame-alist
-               '(font . "Aporetic Sans Mono 18"))
-  ;;(add-to-list 'default-frame-alist
-  ;;             '(alpha-background . 93))
   (pixel-scroll-precision-mode t)
-  (load-theme 'ef-elea-dark t))
+  (mqnr/load-theme-from-json (expand-file-name "theme.json" user-emacs-directory)))
 
 ;; Editing
 (use-package emacs
