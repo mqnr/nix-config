@@ -9,7 +9,9 @@ lib.mkIf config.isPC {
           command = "nu";
           font-family = "Aporetic Sans Mono";
           font-size = 18;
-          background-opacity = 0.9;
+          background = "292c2f";
+          background-opacity = 0.95;
+          window-padding-x = 8;
         };
       };
     }
