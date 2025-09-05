@@ -10,6 +10,10 @@ When called interactively, prompt for THEME with completion."
   (mapc #'disable-theme custom-enabled-themes)
   (load-theme theme t))
 
+(defun mqnr/reload-theme-from-default-json ()
+  (interactive
+   (mqnr/load-theme-from-json (expand-file-name "theme.json" user-emacs-directory))))
+
 (defun mqnr/load-theme-from-json (file)
   "Read JSON FILE and apply settings. Do nothing if FILE does not exist."
   (when (file-exists-p file)
@@ -42,7 +46,7 @@ When called interactively, prompt for THEME with completion."
         display-line-numbers-grow-only t)
   (global-hl-line-mode 1)
   (setq inhibit-startup-screen t
-	initial-scratch-message nil)
+        initial-scratch-message nil)
   (pixel-scroll-precision-mode t)
   (mqnr/load-theme-from-json (expand-file-name "theme.json" user-emacs-directory)))
 
@@ -64,10 +68,35 @@ When called interactively, prompt for THEME with completion."
   ;; Use 'y' or 'n' instead of typing 'yes' or 'no'
   (defalias 'yes-or-no-p 'y-or-n-p))
 
+(use-package indent-bars
+  :ensure t
+  :hook (prog-mode . indent-bars-mode)
+  :custom
+  (setq
+   indent-bars-color '(highlight :face-bg t :blend 0.6)
+   indent-bars-ts-color '(inherit unspecified :blend 0.2)
+   indent-bars-pattern "."
+   indent-bars-width-frac 0.1
+   indent-bars-pad-frac 0.1
+   indent-bars-zigzag nil
+   indent-bars-color-by-depth nil
+   indent-bars-highlight-current-depth nil
+   indent-bars-starting-column 0
+   indent-bars-display-on-blank-lines 'least
+   )
+  (indent-bars-treesit-support t)
+  (indent-bars-no-descend-lists t)
+  (indent-bars-treesit-scope '((python function_definition class_definition for_statement
+				       if_statement with_statement while_statement)))
+  (indent-bars-treesit-ignore-blank-lines-types '("module")))
+
 (use-package magit
   :ensure t)
 
 (use-package ef-themes
+  :ensure t)
+
+(use-package doom-themes
   :ensure t)
 
 (use-package vertico
@@ -94,6 +123,9 @@ When called interactively, prompt for THEME with completion."
   :custom
   ;; Enable cycling for `corfu-next/previous'
   (corfu-cycle t)
+  :config
+  (setq corfu-auto t
+        corfu-quit-no-match 'separator)
   :init
   (global-corfu-mode))
 
@@ -358,3 +390,10 @@ When called interactively, prompt for THEME with completion."
   :mode "\\.py\\'"
   :config
   (mqnr/eglot-setup 'python-ts-mode '("basedpyright-langserver" "--stdio")))
+
+(use-package markdown-mode
+  :ensure t
+  :mode ("README\\.md\\'" . gfm-mode)
+  :init (setq markdown-command "multimarkdown")
+  :bind (:map markdown-mode-map
+              ("C-c C-e" . markdown-do)))
