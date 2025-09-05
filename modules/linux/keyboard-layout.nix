@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  inputs,
+  ...
+}:
 
 lib.mkIf config.isPC {
   services.xserver.xkb.extraLayouts = {
@@ -8,7 +13,7 @@ lib.mkIf config.isPC {
         "eng"
         "spa"
       ];
-      symbolsFile = ../../kblayouts/tangent-qwerty;
+      symbolsFile = "${inputs.tangent}/xkb/symbols/tangent-qwerty";
     };
     tangent-gallium = {
       description = "Tangent Gallium layout";
@@ -16,7 +21,7 @@ lib.mkIf config.isPC {
         "eng"
         "spa"
       ];
-      symbolsFile = ../../kblayouts/tangent-gallium;
+      symbolsFile = "${inputs.tangent}/xkb/symbols/tangent-gallium";
     };
   };
 
