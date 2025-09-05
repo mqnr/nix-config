@@ -152,7 +152,24 @@
         "emacs-overlay": "emacs-overlay",
         "home-manager": "home-manager",
         "niri": "niri",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "tangent": "tangent"
+      }
+    },
+    "tangent": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1757096375,
+        "narHash": "sha256-oMvusOi/KicyaUGH6KQd8hk2IPeAHqnVotlmmdQE/Hk=",
+        "owner": "mqnr",
+        "repo": "tangent",
+        "rev": "37e1937f5fade4567fc5a1847cb1b7c8f2b265b6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mqnr",
+        "repo": "tangent",
+        "type": "github"
       }
     },
     "xwayland-satellite-stable": {
