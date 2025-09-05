@@ -3,6 +3,7 @@
 {
   home-manager.sharedModules = [
     {
+      home.shell.enableNushellIntegration = true;
       home.shellAliases = {
         g = "git";
 
@@ -10,11 +11,15 @@
         "...." = "cd ../../..";
         "....." = "cd ../../../..";
         "......" = "cd ../../../../..";
-      }
-      // lib.optionalAttrs config.isPC {
+      };
+
+      programs.starship.enable = true;
+    }
+    (lib.mkIf config.isPC {
+      home.shellAliases = {
         o = "bat --plain";
         p = "bat --plain --paging=auto";
       };
-    }
+    })
   ];
 }

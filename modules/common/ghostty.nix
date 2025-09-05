@@ -5,10 +5,8 @@ lib.mkIf config.isPC {
     {
       programs.ghostty = {
         enable = true;
-        enableFishIntegration = true;
-
         settings = {
-          command = "fish";
+          command = "nu";
           font-family = "Aporetic Sans Mono";
           font-size = 18;
           background-opacity = 0.9;
