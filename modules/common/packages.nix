@@ -35,6 +35,7 @@
         pkgs.qbittorrent # Torrent client
 
         # Browsers
+        pkgs.brave # Privacy-focused Chromium-based browser
         pkgs.firefox # Browser by Mozilla
         pkgs.google-chrome # Propietary browser by Google
       ]
