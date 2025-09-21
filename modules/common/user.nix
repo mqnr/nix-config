@@ -9,6 +9,7 @@ lib.mkIf config.isPC {
       "wheel"
       "bluetooth"
       "video"
-    ];
+    ]
+    ++ lib.optionals config.isWork [ "podman" ];
   };
 }
