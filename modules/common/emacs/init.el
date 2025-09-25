@@ -11,8 +11,8 @@ When called interactively, prompt for THEME with completion."
   (load-theme theme t))
 
 (defun mqnr/reload-theme-from-default-json ()
-  (interactive
-   (mqnr/load-theme-from-json (expand-file-name "theme.json" user-emacs-directory))))
+  (interactive)
+  (mqnr/load-theme-from-json (expand-file-name "theme.json" user-emacs-directory)))
 
 (defun mqnr/load-theme-from-json (file)
   "Read JSON FILE and apply settings. Do nothing if FILE does not exist."
@@ -48,6 +48,8 @@ When called interactively, prompt for THEME with completion."
   (setq inhibit-startup-screen t
         initial-scratch-message nil)
   (pixel-scroll-precision-mode t)
+  (dolist (h '(term-mode-hook shell-mode-hook eshell-mode-hook help-mode-hook compilation-mode-hook))
+    (add-hook h (lambda () (display-line-numbers-mode 0))))
   (mqnr/load-theme-from-json (expand-file-name "theme.json" user-emacs-directory)))
 
 ;; Editing
@@ -59,8 +61,19 @@ When called interactively, prompt for THEME with completion."
   (global-auto-revert-mode 1)
   (delete-selection-mode 1)
   (setq-default indent-tabs-mode nil)
+  (make-directory "~/.emacs.d/backups" t)
+  (make-directory "~/.emacs.d/auto-saves" t)
   (setq backup-directory-alist '((".*" . "~/.emacs.d/backups")
 	auto-save-file-name-transforms `((".*" "~/.emacs.d/auto-saves/" t)))))
+
+(use-package emacs
+  :init
+  (setq read-process-output-max (* 4 1024 1024)
+        gc-cons-threshold (* 64 1024 1024))
+
+  (setq major-mode-remap-alist
+        '((python-mode . python-ts-mode))))
+
 
 ;; Other
 (use-package emacs
@@ -120,14 +133,14 @@ When called interactively, prompt for THEME with completion."
 
 (use-package corfu
   :ensure t
-  :custom
-  ;; Enable cycling for `corfu-next/previous'
-  (corfu-cycle t)
-  :config
-  (setq corfu-auto t
-        corfu-quit-no-match 'separator)
   :init
-  (global-corfu-mode))
+  (global-corfu-mode)
+  :custom
+  (corfu-auto t)
+  (corfu-cycle t)
+  (corfu-quit-no-match 'separator)
+  :hook
+  (corfu-mode . corfu-popupinfo-mode))
 
 ;; [Corfu] A few more useful configurations...
 (use-package emacs
@@ -161,7 +174,7 @@ When called interactively, prompt for THEME with completion."
   :custom
   ;; Enable context menu. `vertico-multiform-mode' adds a menu in the minibuffer
   ;; to switch display modes.
-  (context-menu-mode t)
+  (context-menu-mode 1)
   ;; Support opening new minibuffers from inside existing minibuffers.
   (enable-recursive-minibuffers t)
   ;; Hide commands in M-x which do not work in the current mode. Vertico
@@ -366,17 +379,21 @@ When called interactively, prompt for THEME with completion."
   :hook
   ;; Automatically format before saving in programming modes
   (prog-mode . (lambda ()
-                 (add-hook 'before-save-hook #'eglot-format nil t)))
-  :config
-  ;; This is (at best) tangentially related to Eglot, but whatever
-  (setq major-mode-remap-alist
-        '((python-mode . python-ts-mode))))
+                 (add-hook 'before-save-hook #'eglot-format nil t))))
 
-(defun mqnr/eglot-setup (mode server-command)
-  "Hook eglot into MODE and register SERVER-COMMAND."
-  (add-hook (intern (format "%s-hook" mode)) #'eglot-ensure)
-  (with-eval-after-load 'eglot
-    (setf (alist-get mode eglot-server-programs) server-command)))
+(defun mqnr/eglot-setup (modes server-command)
+  "Hook Eglot into MODES (symbol or list of symbols) and register SERVER-COMMAND.
+SERVER-COMMAND can be a list (\"jdtls\" …) or a lambda returning such a list."
+  (let* ((modes (if (listp modes) modes (list modes)))
+         (key   (if (= (length modes) 1) (car modes) modes))
+         (test  (if (listp key) #'equal #'eq)))
+    ;; Start Eglot automatically for each mode
+    (dolist (m modes)
+      (add-hook (intern (format "%s-hook" m)) #'eglot-ensure))
+    ;; Register server after Eglot loads (runs immediately if already loaded)
+    (with-eval-after-load 'eglot
+      (setf (alist-get key eglot-server-programs nil nil test)
+            server-command))))
 
 ;; Nix
 (use-package nix-ts-mode
@@ -390,6 +407,20 @@ When called interactively, prompt for THEME with completion."
   :mode "\\.py\\'"
   :config
   (mqnr/eglot-setup 'python-ts-mode '("basedpyright-langserver" "--stdio")))
+
+(defun mqnr/eglot-setup (modes server-command)
+  "Hook Eglot into MODES (symbol or list of symbols) and register SERVER-COMMAND.
+SERVER-COMMAND can be a list (\"jdtls\" …) or a lambda returning such a list."
+  (let* ((modes (if (listp modes) modes (list modes)))
+         (key   (if (= (length modes) 1) (car modes) modes))
+         (test  (if (listp key) #'equal #'eq)))
+    ;; Start Eglot automatically for each mode
+    (dolist (m modes)
+      (add-hook (intern (format "%s-hook" m)) #'eglot-ensure))
+    ;; Register server after Eglot loads (runs immediately if already loaded)
+    (with-eval-after-load 'eglot
+      (setf (alist-get key eglot-server-programs nil nil test)
+            server-command))))
 
 (use-package markdown-mode
   :ensure t
