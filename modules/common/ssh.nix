@@ -6,11 +6,7 @@
 
   home-manager.sharedModules = [
     {
-      programs.ssh = {
-        enable = true;
-        addKeysToAgent = "yes";
-      };
-
+      programs.ssh.enable = true;
       services.ssh-agent.enable = true;
     }
   ];

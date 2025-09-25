@@ -10,7 +10,6 @@ lib.mkIf config.isPC {
           font-family = "Aporetic Sans Mono";
           font-size = 18;
           background = "292c2f";
-          background-opacity = 0.95;
           window-padding-x = 8;
         };
       };
