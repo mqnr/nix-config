@@ -61,6 +61,7 @@
         pkgs.nixfmt-rfc-style # Nix formatter
         pkgs.nixd # Nix language server
         pkgs.basedpyright # Python language server
+        pkgs.gopls # Go language server
         pkgs.postman
       ]
       ++ lib.optionals config.isWork [
