@@ -30,11 +30,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    niri = {
-      url = "github:sodiboo/niri-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     emacs-overlay = {
       url = "github:nix-community/emacs-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -76,15 +71,6 @@
             ./modules/common
             ./modules/linux # TODO: do something different
 
-            (
-              { pkgs, ... }:
-              {
-                programs.niri.enable = true;
-                programs.niri.package = pkgs.niri;
-                nixpkgs.overlays = [ inputs.niri.overlays.niri ];
-              }
-            )
-
             { nixpkgs.config.allowUnfree = true; }
 
             {
@@ -113,8 +99,6 @@
             { nixpkgs.overlays = [ inputs.emacs-overlay.overlays.default ]; }
 
             (./hosts + "/${host}")
-
-            inputs.niri.nixosModules.niri
 
             homeManagerModule
           ];
