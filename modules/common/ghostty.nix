@@ -6,7 +6,7 @@ lib.mkIf config.isPC {
       programs.ghostty = {
         enable = true;
         settings = {
-          command = "nu";
+          command = "fish";
           font-family = "Aporetic Sans Mono";
           font-size = 18;
           background = "292c2f";

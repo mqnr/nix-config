@@ -3,7 +3,7 @@
 {
   home-manager.sharedModules = [
     {
-      home.shell.enableNushellIntegration = true;
+      home.shell.enableFishIntegration = true;
       home.shellAliases = {
         g = "git";
 
