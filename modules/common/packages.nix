@@ -44,6 +44,8 @@
         pkgs.haruna # Media player
         pkgs.gimp3-with-plugins # Graphics editor
 
+        pkgs.wl-clipboard
+
         # Other
         pkgs.papirus-icon-theme # Icon theme
       ]
