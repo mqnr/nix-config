@@ -44,12 +44,6 @@
         pkgs.haruna # Media player
         pkgs.gimp3-with-plugins # Graphics editor
 
-        # Desktop
-        pkgs.swayidle # Idle management
-        pkgs.swaylock # Screen locker
-        pkgs.xwayland-satellite # Xwayland integration for compositors lacking it
-        pkgs.wayland-logout # Utility to kill Wayland compositors
-
         # Other
         pkgs.papirus-icon-theme # Icon theme
       ]
