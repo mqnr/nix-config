@@ -11,6 +11,7 @@ lib.mkIf config.isPC {
       tree-sitter-parsers = grammars: [
         grammars.tree-sitter-css
         grammars.tree-sitter-elisp
+        grammars.tree-sitter-go
         grammars.tree-sitter-html
         grammars.tree-sitter-json
         grammars.tree-sitter-json5
