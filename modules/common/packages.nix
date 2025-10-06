@@ -41,12 +41,17 @@
       ]
       ++ lib.optionals (config.isPC && config.isLinux) [
         # Media and graphics
+        pkgs.loupe # Image viewer
+        pkgs.kdePackages.okular # Document viewer
         pkgs.haruna # Media player
         pkgs.gimp3-with-plugins # Graphics editor
 
-        pkgs.wl-clipboard
+        # Desktop
+        pkgs.xwayland-satellite # Xwayland integration for compositors lacking it
+        pkgs.wayland-logout # Utility to kill Wayland compositors
 
         # Other
+        pkgs.wl-clipboard
         pkgs.papirus-icon-theme # Icon theme
       ]
       ++ lib.optionals config.isLaptop [ pkgs.brightnessctl ]
