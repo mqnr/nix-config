@@ -63,7 +63,8 @@
         pkgs.nixd # Nix language server
         pkgs.basedpyright # Python language server
         pkgs.gopls # Go language server
-        pkgs.postman
+        pkgs.postman # You know what Postman is
+        pkgs.claude-code # Agentic AI coding tool
       ]
       ++ lib.optionals config.isWork [
         pkgs.libreoffice-qt6-fresh # LibreOffice
