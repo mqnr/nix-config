@@ -17,6 +17,14 @@ lib.mkIf config.isPC {
               "Noto Color Emoji",
             }),
             font_size = 16,
+
+            keys = {
+              {
+                key = "Enter",
+                mods = "SHIFT",
+                action = wezterm.action.SendString("\x1b\n"),
+              },
+            },
           }
         '';
       };
