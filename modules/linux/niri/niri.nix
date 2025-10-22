@@ -254,9 +254,9 @@ lib.mkIf config.isPC {
 
             "Mod+W".action = toggle-column-tabbed-display;
 
-            "Print".action = screenshot;
+            "Print".action.screenshot = [ ];
             "Ctrl+Print".action.screenshot-screen = [ ];
-            "Alt+Print".action = screenshot-window;
+            "Alt+Print".action.screenshot-window = [ ];
 
             "Mod+Escape" = {
               action = toggle-keyboard-shortcuts-inhibit;
