@@ -79,7 +79,7 @@ lib.mkIf config.isPC {
               ])
               |> lib.listToAttrs;
 
-            terminal = "${pkgs.wezterm}/bin/wezterm";
+            terminal = "${pkgs.ghostty}/bin/ghostty";
             file-manager = "${pkgs.nautilus}/bin/nautilus";
           in
           {
