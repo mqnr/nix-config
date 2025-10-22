@@ -14,6 +14,7 @@ lib.mkIf config.isPC {
         pkgs.noto-fonts-emoji
         pkgs.aporetic
         pkgs.nerd-fonts.jetbrains-mono
+        pkgs.intel-one-mono
       ];
     }
 
