@@ -93,7 +93,10 @@ lib.mkIf config.isPC {
             "Alt+F3" = dms "spotlight toggle" "Toggle Application Launcher";
             "Super+Alt+L" = dms "lock lock" "Toggle Lock Screen";
 
-            "Mod+C".action = spawn file-manager;
+            "Mod+C" = {
+              action = spawn file-manager;
+              hotkey-overlay.title = "Open File Manager";
+            };
 
             "Mod+X" = dms "powermenu toggle" "Toggle Power Menu";
 
