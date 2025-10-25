@@ -1,7 +1,6 @@
 { config, lib, ... }:
 
-# TODO: do something different with this?
-lib.mkIf config.isLinux {
+lib.mkIf config.isPC {
   imports = lib.optional (builtins.pathExists ../../private/ssh.nix) ../../private/ssh.nix;
 
   home-manager.sharedModules = [
