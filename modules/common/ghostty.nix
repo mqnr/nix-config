@@ -1,5 +1,6 @@
 {
   config,
+  pkgs,
   lib,
   ...
 }:
@@ -11,7 +12,7 @@ lib.mkIf config.isPC {
         enable = true;
         package = lib.mkIf config.isDarwin null;
         settings = {
-          command = "nu";
+          command = "${pkgs.nushell}/bin/nu";
           font-family = "Intel One Mono";
           font-size = 16;
           theme = "Catppuccin Mocha";
