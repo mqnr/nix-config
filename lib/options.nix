@@ -21,8 +21,8 @@ in
     isLaptop = lib.mkEnableOption "laptop configuration";
     isPC = mkDerived (config.isDesktop || config.isLaptop) "Personal computer configuration";
 
-    isLinux = mkDerived (pkgs.stdenv.isLinux) "Linux configuration";
-    isDarwin = mkDerived (pkgs.stdenv.isDarwin) "Darwin configuration";
+    isLinux = mkDerived pkgs.stdenv.hostPlatform.isLinux "Linux configuration";
+    isDarwin = mkDerived pkgs.stdenv.hostPlatform.isDarwin "Darwin configuration";
 
     isDev = lib.mkEnableOption "developer configuration";
     isWork = lib.mkEnableOption "work configuration";

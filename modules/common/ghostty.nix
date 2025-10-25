@@ -1,10 +1,15 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  ...
+}:
 
 lib.mkIf config.isPC {
   home-manager.sharedModules = [
     {
       programs.ghostty = {
         enable = true;
+        package = lib.mkIf config.isDarwin null;
         settings = {
           command = "nu";
           font-family = "Intel One Mono";

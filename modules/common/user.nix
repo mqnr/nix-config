@@ -1,12 +1,19 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
-lib.mkIf config.isPC {
+{
   users.users."${config.username}" = {
-    home = "/home/${config.username}";
+    home = if pkgs.stdenv.isLinux then "/home/${config.username}" else "/Users/${config.username}";
+  }
+  // lib.optionalAttrs pkgs.stdenv.isLinux {
     isNormalUser = true;
     extraGroups = [
-      "networkmanager"
       "wheel"
+      "networkmanager"
       "bluetooth"
       "video"
     ]
