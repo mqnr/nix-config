@@ -1,7 +1,10 @@
 { config, ... }:
 
 {
-  imports = [ ./hardware.nix ];
+  imports = [
+    ./hardware.nix
+    ./diagnosis.nix
+  ];
 
   username = "martin";
   hostname = "tigris";
