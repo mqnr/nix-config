@@ -12,7 +12,7 @@ lib.mkIf config.isPC {
         enable = true;
         package = lib.mkIf config.isDarwin null;
         settings = {
-          command = "${pkgs.nushell}/bin/nu";
+          command = if config.isLinux then "${pkgs.nushell}/bin/nu" else "fish";
           font-family = "Intel One Mono";
           font-size = 16;
           theme = "Catppuccin Mocha";
