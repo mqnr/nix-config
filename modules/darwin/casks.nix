@@ -1,5 +1,8 @@
 { ... }:
 
 {
-  homebrew.casks = [ "google-chrome" ];
+  homebrew.casks = [
+    "google-chrome"
+    "discord"
+  ];
 }
