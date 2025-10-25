@@ -139,11 +139,6 @@
             ./modules/darwin
             home-manager.darwinModules.home-manager
             nix-homebrew.darwinModules.nix-homebrew
-
-            {
-              services.nix-daemon.enable = true;
-              programs.zsh.enable = true;
-            }
           ];
         };
     in
