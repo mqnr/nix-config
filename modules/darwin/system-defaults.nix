@@ -85,7 +85,5 @@
   };
 
   # Ensure screenshots directory exists
-  system.activationScripts.postUserActivation.text = ''
-    mkdir -p ~/Pictures/Screenshots
-  '';
+  home-manager.sharedModules = [ { home.file."Pictures/Screenshots/.keep".text = ""; } ];
 }
