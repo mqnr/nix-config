@@ -35,8 +35,8 @@
       AppleScrollerPagingBehavior = true; # Jump to the spot that’s clicked on the scroll bar
       AppleShowScrollBars = "Automatic";
 
-      InitialKeyRepeat = 10;
-      KeyRepeat = 1;
+      InitialKeyRepeat = 15;
+      KeyRepeat = 2;
       ApplePressAndHoldEnabled = false; # Disable press-and-hold for special characters
 
       NSAutomaticCapitalizationEnabled = false;
