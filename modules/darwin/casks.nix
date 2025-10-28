@@ -6,5 +6,6 @@
     "firefox"
     "zen"
     "discord"
+    "iina"
   ];
 }
