@@ -20,8 +20,8 @@
         { app = "/Applications/Zen.app"; }
         { app = "/Applications/Ghostty.app"; }
         { app = "/Applications/Discord.app"; }
-        { app = "/Applications/Mail.app"; }
-        { app = "/Applications/Notes.app"; }
+        { app = "/System/Applications/Mail.app"; }
+        { app = "/System/Applications/Notes.app"; }
       ];
     };
 
