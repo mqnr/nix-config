@@ -9,6 +9,32 @@
       showhidden = true;
 
       tilesize = 48;
+
+      # Hot corners
+      wvous-bl-corner = 1; # Disabled
+      wvous-br-corner = 1; # Disabled
+      wvous-tl-corner = 2; # Mission Control on top left corner
+      wvous-tr-corner = 4; # Show desktop on top right corner
+
+      persistent-apps = [
+        { app = "/Applications/Zen.app"; }
+        { app = "/Applications/Ghostty.app"; }
+        { app = "/Applications/Discord.app"; }
+        { app = "/Applications/Mail.app"; }
+        { app = "/Applications/Notes.app"; }
+      ];
+    };
+
+    # Top bar settings
+    controlcenter = {
+      BatteryShowPercentage = true;
+      Bluetooth = true; # Show bluetooth widget
+    };
+
+    # Clock settings
+    menuExtraClock = {
+      Show24Hour = true;
+      ShowSeconds = true;
     };
 
     # Finder settings
@@ -38,6 +64,12 @@
       InitialKeyRepeat = 15;
       KeyRepeat = 2;
       ApplePressAndHoldEnabled = false; # Disable press-and-hold for special characters
+
+      # Localization
+      AppleICUForce24HourTime = true;
+      AppleMeasurementUnits = "Centimeters";
+      AppleMetricUnits = 1;
+      AppleTemperatureUnit = "Celsius";
 
       NSAutomaticCapitalizationEnabled = false;
       NSAutomaticDashSubstitutionEnabled = false;
