@@ -36,6 +36,14 @@ lib.mkIf config.isPC {
           ".Trash-*"
           ".nfs*"
           "nohup.out"
+          ".DS_Store"
+          ".AppleDouble"
+          ".LSOverride"
+          "Icon"
+          "._*"
+          "Thumbs.db"
+          ".Spotlight-V100"
+          ".Trashes"
         ];
 
         extraConfig = {
