@@ -11,7 +11,7 @@ lib.mkIf config.isPC {
       home.packages = [
         pkgs.noto-fonts
         pkgs.noto-fonts-cjk-sans
-        pkgs.noto-fonts-emoji
+        pkgs.noto-fonts-color-emoji
         pkgs.aporetic
         pkgs.nerd-fonts.jetbrains-mono
         pkgs.intel-one-mono
