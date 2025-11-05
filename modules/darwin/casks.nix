@@ -7,5 +7,7 @@
     "zen"
     "discord"
     "iina"
+    "transmission"
+    "karabiner-elements"
   ];
 }
