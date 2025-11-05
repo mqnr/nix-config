@@ -5,8 +5,7 @@
   ...
 }:
 
-# TODO: don't cope
-lib.mkIf (config.isPC && config.isLinux) {
+lib.mkIf config.isPC {
   home-manager.sharedModules = [
     {
       programs.vscode = {
