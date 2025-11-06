@@ -119,6 +119,16 @@
             inputs.niri.nixosModules.niri
             inputs.home-manager.nixosModules.home-manager
 
+            (
+              { pkgs, ... }:
+              {
+                programs.niri = {
+                  enable = true;
+                  package = pkgs.niri;
+                };
+              }
+            )
+
             {
               home-manager.sharedModules = [
                 inputs.dankMaterialShell.homeModules.dankMaterialShell.default
