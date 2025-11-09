@@ -6,23 +6,31 @@ lib.mkIf config.isPC {
       programs.git = {
         enable = true;
 
-        userName = "mzamorano";
-        userEmail = "martin@mzamorano.com";
+        settings = {
+          user = {
+            name = "mzamorano";
+            email = "martin@mzamorano.com";
+          };
 
-        aliases = {
-          "a" = "add";
-          "aa" = "add -A";
-          "s" = "status";
-          "d" = "diff";
-          "co" = "checkout";
-          "br" = "branch";
-          "cf" = "commit"; # commit full; as in, a full message
-          "cc" = "commit -m"; # commit concise
-          "unstage" = "restore --staged";
-          "unstage-all" = "restore --staged :/";
-          "last" = "log -1 HEAD";
-          "lg" =
-            "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
+          init.defaultBranch = "main";
+          color.ui = "auto";
+          pull.rebase = false;
+
+          aliases = {
+            "a" = "add";
+            "aa" = "add -A";
+            "s" = "status";
+            "d" = "diff";
+            "co" = "checkout";
+            "br" = "branch";
+            "cf" = "commit"; # commit full; as in, a full message
+            "cc" = "commit -m"; # commit concise
+            "unstage" = "restore --staged";
+            "unstage-all" = "restore --staged :/";
+            "last" = "log -1 HEAD";
+            "lg" =
+              "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
+          };
         };
 
         ignores = [
@@ -45,12 +53,6 @@ lib.mkIf config.isPC {
           ".Spotlight-V100"
           ".Trashes"
         ];
-
-        extraConfig = {
-          init.defaultBranch = "main";
-          color.ui = "auto";
-          pull.rebase = false;
-        };
       };
     }
   ];
