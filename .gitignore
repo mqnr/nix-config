@@ -1,1 +1,15 @@
-/private/
+*
+
+!*.nix
+!*.md
+!*.age
+!*.json
+!*.nu
+!*.el
+
+!flake.lock
+
+!LICENSE
+!.gitignore
+
+!*/
