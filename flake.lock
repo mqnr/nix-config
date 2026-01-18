@@ -376,11 +376,11 @@
     "tangent": {
       "flake": false,
       "locked": {
-        "lastModified": 1768757779,
-        "narHash": "sha256-GpgxAExrt0bAZKJlBculwnsyz0DW5nVHee3tKvZsPUA=",
+        "lastModified": 1768761503,
+        "narHash": "sha256-3A+85+mSfoHTxUvRvVLqclr/wcpqun4oWVqxUdiMPms=",
         "owner": "mqnr",
         "repo": "tangent",
-        "rev": "907346fc42801870649ce0b1c475bbe115917e3c",
+        "rev": "6f2b3a6cf852ca4d13f5e5da14f0fa8f3649ea2f",
         "type": "github"
       },
       "original": {
