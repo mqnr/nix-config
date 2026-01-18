@@ -1,17 +1,15 @@
 {
   config,
-  pkgs,
   lib,
-  inputs,
   ...
 }:
 
 lib.mkIf config.isPC {
   home-manager.sharedModules = [
     {
-      programs.dankMaterialShell = {
+      programs.dank-material-shell = {
         enable = true;
-        enableSystemd = true;
+        systemd.enable = true;
       };
     }
   ];
