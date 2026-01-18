@@ -25,7 +25,7 @@
         pkgs.ragenix
       ]
       ++ lib.optionals config.isDev [
-        pkgs.nixfmt-rfc-style # Nix formatter
+        pkgs.nixfmt # Nix formatter
         pkgs.nixd # Nix language server
         pkgs.gopls # Go language server
         pkgs.claude-code # Agentic AI coding tool
