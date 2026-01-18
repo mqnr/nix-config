@@ -4,6 +4,7 @@
   system.defaults = {
     # Dock settings
     dock = {
+      autohide = true;
       mru-spaces = false;
       show-recents = false;
       showhidden = true;
@@ -113,7 +114,6 @@
         personalizedAdsMigrated = false;
       };
     };
-
   };
 
   # Ensure screenshots directory exists
