@@ -16,7 +16,8 @@ lib.mkIf config.isPC {
           font-family = "Intel One Mono";
           font-size = 16;
           theme = "Catppuccin Mocha";
-          background-opacity = 0.93;
+          background-opacity = 0.90;
+          background-blur = config.isDarwin;
           window-padding-x = 8;
         };
       };
