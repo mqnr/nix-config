@@ -21,7 +21,7 @@
         { app = "/Applications/Zen.app"; }
         { app = "/Applications/Ghostty.app"; }
         { app = "/Applications/Vesktop.app"; }
-        { app = "/System/Applications/Mail.app"; }
+        { app = "/Applications/Thunderbird.app"; }
         { app = "/System/Applications/Notes.app"; }
       ];
     };

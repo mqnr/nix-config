@@ -5,6 +5,7 @@
     "google-chrome"
     "firefox"
     "zen"
+    "thunderbird"
     "bitwarden"
     "discord"
     "vesktop"
