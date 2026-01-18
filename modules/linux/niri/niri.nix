@@ -110,7 +110,6 @@ lib.mkIf config.isPC {
 
             "Alt+F4".action = close-window;
             "Mod+Q".action = close-window;
-            "Mod+B".action = close-window; # oBliterate
 
             # Uvierview
             "Mod+U" = no-repeat toggle-overview;
