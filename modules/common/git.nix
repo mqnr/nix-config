@@ -16,7 +16,7 @@ lib.mkIf config.isPC {
           color.ui = "auto";
           pull.rebase = false;
 
-          aliases = {
+          alias = {
             "a" = "add";
             "aa" = "add -A";
             "s" = "status";
