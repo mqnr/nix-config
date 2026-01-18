@@ -22,6 +22,7 @@
       ++ lib.optionals config.isPC [
         pkgs.ffmpeg
         pkgs.yt-dlp
+        pkgs.ragenix
       ]
       ++ lib.optionals config.isDev [
         pkgs.nixfmt-rfc-style # Nix formatter
