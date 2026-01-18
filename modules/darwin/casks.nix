@@ -5,9 +5,14 @@
     "google-chrome"
     "firefox"
     "zen"
+    "bitwarden"
     "discord"
     "iina"
     "transmission"
-    "karabiner-elements"
+    "rectangle"
+    "monitorcontrol"
+    "linearmouse"
+    "obs"
+    "whatsapp"
   ];
 }
