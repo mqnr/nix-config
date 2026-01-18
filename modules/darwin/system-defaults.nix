@@ -20,7 +20,7 @@
       persistent-apps = [
         { app = "/Applications/Zen.app"; }
         { app = "/Applications/Ghostty.app"; }
-        { app = "/Applications/Discord.app"; }
+        { app = "/Applications/Vesktop.app"; }
         { app = "/System/Applications/Mail.app"; }
         { app = "/System/Applications/Notes.app"; }
       ];

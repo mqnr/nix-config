@@ -7,6 +7,7 @@
     "zen"
     "bitwarden"
     "discord"
+    "vesktop"
     "iina"
     "transmission"
     "rectangle"
