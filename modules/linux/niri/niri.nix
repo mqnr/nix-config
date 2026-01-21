@@ -12,7 +12,7 @@ lib.mkIf config.isPC {
         prefer-no-csd = true;
 
         input = {
-          keyboard.xkb.layout = "tangent-gallium";
+          keyboard.xkb.layout = "kuntem_jq";
 
           touchpad = {
             tap = true;

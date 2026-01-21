@@ -7,21 +7,21 @@
 
 lib.mkIf config.isPC {
   services.xserver.xkb.extraLayouts = {
-    tangent-qwerty = {
+    tangent_qwerty = {
       description = "Tangent QWERTY layout";
       languages = [
         "eng"
         "spa"
       ];
-      symbolsFile = "${inputs.tangent}/xkb/symbols/tangent-qwerty";
+      symbolsFile = "${inputs.tangent}/xkb/symbols/tangent_qwerty";
     };
-    tangent-gallium = {
-      description = "Tangent Gallium layout";
+    kuntem_jq = {
+      description = "Kuntem-JQ layout";
       languages = [
         "eng"
         "spa"
       ];
-      symbolsFile = "${inputs.tangent}/xkb/symbols/tangent-gallium";
+      symbolsFile = "${inputs.tangent}/xkb/symbols/kuntem_jq";
     };
   };
 

@@ -11,7 +11,7 @@ lib.mkIf config.isPC (
       input {
         keyboard {
           xkb {
-            layout "tangent-gallium"
+            layout "kuntem_jq"
             model ""
             rules ""
             variant ""
