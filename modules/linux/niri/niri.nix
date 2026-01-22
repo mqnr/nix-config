@@ -83,7 +83,7 @@ lib.mkIf config.isPC {
             file-manager = "${pkgs.nautilus}/bin/nautilus";
           in
           {
-            "Mod+Shift+Slash".action = show-hotkey-overlay;
+            "Mod+Shift+Semicolon".action = show-hotkey-overlay;
 
             "Mod+Return" = {
               action = spawn terminal;
@@ -93,12 +93,22 @@ lib.mkIf config.isPC {
             "Alt+F3" = dms "spotlight toggle" "Toggle Application Launcher";
             "Super+Alt+L" = dms "lock lock" "Toggle Lock Screen";
 
-            "Mod+C" = {
+            "Mod+D" = {
               action = spawn file-manager;
               hotkey-overlay.title = "Open File Manager";
             };
 
-            "Mod+X" = dms "powermenu toggle" "Toggle Power Menu";
+            "Alt+Tab".action = next-window;
+            "Alt+Shift+Tab".action = previous-window;
+            "Mod+Tab".action = next-window;
+            "Mod+Shift+Tab".action = previous-window;
+
+            "Alt+grave".action.next-window.filter = "app-id";
+            "Alt+Shift+grave".action.previous-window.filter = "app-id";
+            "Mod+grave".action.next-window.filter = "app-id";
+            "Mod+Shift+grave".action.previous-window.filter = "app-id";
+
+            "Mod+Z" = dms "powermenu toggle" "Toggle Power Menu";
 
             "XF86AudioRaiseVolume" = dms-allow-locked "audio increment 3";
             "XF86AudioLowerVolume" = dms-allow-locked "audio decrement 3";
@@ -114,7 +124,7 @@ lib.mkIf config.isPC {
             # Uvierview
             "Mod+U" = no-repeat toggle-overview;
 
-            "Mod+Slash" = dms "settings toggle" "Toggle Settings";
+            "Mod+Semicolon" = dms "settings toggle" "Toggle Settings";
 
             "Mod+Backslash" = dms "processlist toggle" "Toggle Process List";
 
@@ -126,33 +136,33 @@ lib.mkIf config.isPC {
 
             "Mod+Alt+N" = dms "notifications toggle" "Toggle Notifications Center";
 
-            "Mod+M".action = focus-window-previous;
+            "Mod+P".action = focus-window-previous;
 
             "Mod+Left".action = focus-column-left;
             "Mod+Down".action = focus-window-or-workspace-down;
             "Mod+Up".action = focus-window-or-workspace-up;
             "Mod+Right".action = focus-column-right;
-            "Mod+H".action = focus-column-left;
+            "Mod+C".action = focus-column-left;
             "Mod+A".action = focus-window-or-workspace-down;
             "Mod+O".action = focus-window-or-workspace-up;
-            "Mod+E".action = focus-column-right;
-            "Mod+R".action = focus-column-left;
-            "Mod+T".action = focus-window-or-workspace-down;
-            "Mod+D".action = focus-window-or-workspace-up;
-            "Mod+S".action = focus-column-right;
+            "Mod+I".action = focus-column-right;
+            "Mod+S".action = focus-column-left;
+            "Mod+R".action = focus-window-or-workspace-down;
+            "Mod+N".action = focus-window-or-workspace-up;
+            "Mod+H".action = focus-column-right;
 
             "Mod+Shift+Left".action = move-column-left;
             "Mod+Shift+Down".action = move-window-down;
             "Mod+Shift+Up".action = move-window-up;
             "Mod+Shift+Right".action = move-column-right;
-            "Mod+Shift+H".action = move-column-left;
+            "Mod+Shift+C".action = move-column-left;
             "Mod+Shift+A".action = move-window-down;
             "Mod+Shift+O".action = move-window-up;
-            "Mod+Shift+E".action = move-column-right;
-            "Mod+Shift+R".action = move-column-left;
-            "Mod+Shift+T".action = move-window-down;
-            "Mod+Shift+D".action = move-window-up;
-            "Mod+Shift+S".action = move-column-right;
+            "Mod+Shift+I".action = move-column-right;
+            "Mod+Shift+S".action = move-column-left;
+            "Mod+Shift+R".action = move-window-down;
+            "Mod+Shift+N".action = move-window-up;
+            "Mod+Shift+H".action = move-column-right;
 
             "Mod+Home".action = focus-column-first;
             "Mod+End".action = focus-column-last;
@@ -163,40 +173,40 @@ lib.mkIf config.isPC {
             "Mod+Ctrl+Down".action = focus-monitor-down;
             "Mod+Ctrl+Up".action = focus-monitor-up;
             "Mod+Ctrl+Right".action = focus-monitor-right;
-            "Mod+Ctrl+H".action = focus-monitor-left;
+            "Mod+Ctrl+C".action = focus-monitor-left;
             "Mod+Ctrl+A".action = focus-monitor-down;
             "Mod+Ctrl+O".action = focus-monitor-up;
-            "Mod+Ctrl+E".action = focus-monitor-right;
-            "Mod+Ctrl+R".action = focus-monitor-left;
-            "Mod+Ctrl+T".action = focus-monitor-down;
-            "Mod+Ctrl+D".action = focus-monitor-up;
-            "Mod+Ctrl+S".action = focus-monitor-right;
+            "Mod+Ctrl+I".action = focus-monitor-right;
+            "Mod+Ctrl+S".action = focus-monitor-left;
+            "Mod+Ctrl+R".action = focus-monitor-down;
+            "Mod+Ctrl+N".action = focus-monitor-up;
+            "Mod+Ctrl+H".action = focus-monitor-right;
             "Mod+Ctrl+Shift+Left".action = move-column-to-monitor-left;
             "Mod+Ctrl+Shift+Down".action = move-column-to-monitor-down;
             "Mod+Ctrl+Shift+Up".action = move-column-to-monitor-up;
             "Mod+Ctrl+Shift+Right".action = move-column-to-monitor-right;
-            "Mod+Ctrl+Shift+H".action = move-column-to-monitor-left;
+            "Mod+Ctrl+Shift+C".action = move-column-to-monitor-left;
             "Mod+Ctrl+Shift+A".action = move-column-to-monitor-down;
             "Mod+Ctrl+Shift+O".action = move-column-to-monitor-up;
-            "Mod+Ctrl+Shift+E".action = move-column-to-monitor-right;
-            "Mod+Ctrl+Shift+R".action = move-column-to-monitor-left;
-            "Mod+Ctrl+Shift+T".action = move-column-to-monitor-down;
-            "Mod+Ctrl+Shift+D".action = move-column-to-monitor-up;
-            "Mod+Ctrl+Shift+S".action = move-column-to-monitor-right;
+            "Mod+Ctrl+Shift+I".action = move-column-to-monitor-right;
+            "Mod+Ctrl+Shift+S".action = move-column-to-monitor-left;
+            "Mod+Ctrl+Shift+R".action = move-column-to-monitor-down;
+            "Mod+Ctrl+Shift+N".action = move-column-to-monitor-up;
+            "Mod+Ctrl+Shift+H".action = move-column-to-monitor-right;
 
             "Mod+Page_Down".action = focus-workspace-down;
             "Mod+Page_Up".action = focus-workspace-up;
-            "Mod+Period".action = focus-workspace-down;
-            "Mod+Comma".action = focus-workspace-up;
+            "Mod+Slash".action = focus-workspace-down;
+            "Mod+J".action = focus-workspace-up;
             "Mod+Shift+Page_Down".action = move-column-to-workspace-down;
             "Mod+Shift+Page_Up".action = move-column-to-workspace-up;
-            "Mod+Shift+Period".action = move-column-to-workspace-down;
-            "Mod+Shift+Comma".action = move-column-to-workspace-up;
+            "Mod+Shift+Slash".action = move-column-to-workspace-down;
+            "Mod+Shift+J".action = move-column-to-workspace-up;
 
             "Mod+Ctrl+Page_Down".action = move-workspace-down;
             "Mod+Ctrl+Page_Up".action = move-workspace-up;
-            "Mod+Ctrl+Period".action = move-workspace-down;
-            "Mod+Ctrl+Comma".action = move-workspace-up;
+            "Mod+Ctrl+Slash".action = move-workspace-down;
+            "Mod+Ctrl+J".action = move-workspace-up;
 
             "Mod+WheelScrollRight".action = focus-column-right;
             "Mod+WheelScrollLeft".action = focus-column-left;
@@ -229,18 +239,19 @@ lib.mkIf config.isPC {
             "Mod+BracketLeft".action = consume-or-expel-window-left;
             "Mod+BracketRight".action = consume-or-expel-window-right;
 
-            "Mod+Apostrophe".action = consume-window-into-column;
-            "Mod+Semicolon".action = expel-window-from-column;
+            "Mod+Period".action = consume-window-into-column;
+            "Mod+Comma".action = expel-window-from-column;
 
             "Mod+L".action = switch-preset-column-width;
             "Mod+Shift+L".action = switch-preset-window-height;
             "Mod+Ctrl+L".action = reset-window-height;
+
             "Mod+F".action = maximize-column;
             "Mod+Shift+F".action = fullscreen-window;
-
+            "Mod+M".action = maximize-window-to-edges;
             "Mod+Ctrl+F".action = expand-column-to-available-width;
 
-            "Mod+V".action = center-column;
+            "Mod+K".action = center-column;
 
             "Mod+Minus".action = set-column-width "-10%";
             "Mod+Equal".action = set-column-width "+10%";
@@ -248,10 +259,10 @@ lib.mkIf config.isPC {
             "Mod+Shift+Minus".action = set-window-height "-10%";
             "Mod+Shift+Equal".action = set-window-height "+10%";
 
-            "Mod+Z".action = toggle-window-floating;
-            "Mod+Shift+Z".action = switch-focus-between-floating-and-tiling;
+            "Mod+Apostrophe".action = toggle-window-floating;
+            "Mod+Shift+Apostrophe".action = switch-focus-between-floating-and-tiling;
 
-            "Mod+W".action = toggle-column-tabbed-display;
+            "Mod+B".action = toggle-column-tabbed-display;
 
             "Print".action.screenshot = [ ];
             "Ctrl+Print".action.screenshot-screen = [ ];
@@ -262,7 +273,7 @@ lib.mkIf config.isPC {
               allow-inhibiting = false;
             };
 
-            "Mod+Shift+B".action = quit;
+            "Mod+Shift+Q".action = quit;
             "Ctrl+Alt+Delete".action = quit;
 
             "Mod+Shift+P".action = power-off-monitors;
