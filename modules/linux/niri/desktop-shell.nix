@@ -10,6 +10,7 @@ lib.mkIf config.isPC {
       programs.dank-material-shell = {
         enable = true;
         systemd.enable = true;
+        niri.enableKeybinds = false;
       };
     }
   ];
