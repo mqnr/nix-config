@@ -98,10 +98,10 @@ lib.mkIf config.isPC {
               hotkey-overlay.title = "Open File Manager";
             };
 
-            "Alt+Tab".action = next-window;
-            "Alt+Shift+Tab".action = previous-window;
-            "Mod+Tab".action = next-window;
-            "Mod+Shift+Tab".action = previous-window;
+            "Alt+Tab".action.next-window = [ ];
+            "Alt+Shift+Tab".action.previous-window = [ ];
+            "Mod+Tab".action.next-window = [ ];
+            "Mod+Shift+Tab".action.previous-window = [ ];
 
             "Alt+grave".action.next-window.filter = "app-id";
             "Alt+Shift+grave".action.previous-window.filter = "app-id";
