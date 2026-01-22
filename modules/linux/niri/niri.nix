@@ -98,15 +98,19 @@ lib.mkIf config.isPC {
               hotkey-overlay.title = "Open File Manager";
             };
 
-            "Alt+Tab".action.next-window = [ ];
-            "Alt+Shift+Tab".action.previous-window = [ ];
-            "Mod+Tab".action.next-window = [ ];
-            "Mod+Shift+Tab".action.previous-window = [ ];
+            # "Alt+Tab".action.next-window = [ ];
+            # "Alt+Shift+Tab".action.previous-window = [ ];
+            # "Mod+Tab".action.next-window = [ ];
+            # "Mod+Shift+Tab".action.previous-window = [ ];
 
-            "Alt+grave".action.next-window.filter = "app-id";
-            "Alt+Shift+grave".action.previous-window.filter = "app-id";
-            "Mod+grave".action.next-window.filter = "app-id";
-            "Mod+Shift+grave".action.previous-window.filter = "app-id";
+            # "Alt+grave".action.next-window.filter = "app-id";
+            # "Alt+Shift+grave".action.previous-window.filter = "app-id";
+            # "Mod+grave".action.next-window.filter = "app-id";
+            # "Mod+Shift+grave".action.previous-window.filter = "app-id";
+            # "Alt+V".action.next-window.filter = "app-id";
+            # "Alt+Shift+V".action.previous-window.filter = "app-id";
+            # "Mod+V".action.next-window.filter = "app-id";
+            # "Mod+Shift+V".action.previous-window.filter = "app-id";
 
             "Mod+Z" = dms "powermenu toggle" "Toggle Power Menu";
 
