@@ -4,6 +4,7 @@
   homebrew.casks = [
     "google-chrome"
     "firefox"
+    "brave-browser"
     "zen"
     "thunderbird"
     "bitwarden"
