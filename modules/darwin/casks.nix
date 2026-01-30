@@ -14,6 +14,7 @@
     "rectangle"
     "monitorcontrol"
     "linearmouse"
+    "alt-tab"
     "obs"
     "whatsapp"
   ];
