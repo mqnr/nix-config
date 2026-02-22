@@ -22,8 +22,6 @@ lib.mkIf config.isPC {
         defaultApplications =
           let
             browser = "firefox.desktop";
-            documentViewer = "org.kde.okular.desktop";
-            imageViewer = "org.gnome.Loupe.desktop";
             videoPlayer = "org.kde.haruna.desktop";
           in
           {
@@ -33,21 +31,6 @@ lib.mkIf config.isPC {
             "x-scheme-handler/https" = browser;
             "x-scheme-handler/about" = browser;
             "x-scheme-handler/unknown" = browser;
-
-            # PDF files
-            "application/pdf" = documentViewer;
-            "application/x-pdf" = documentViewer;
-
-            # Image files
-            "image/jpeg" = imageViewer;
-            "image/jpg" = imageViewer;
-            "image/png" = imageViewer;
-            "image/gif" = imageViewer;
-            "image/webp" = imageViewer;
-            "image/tiff" = imageViewer;
-            "image/bmp" = imageViewer;
-            "image/svg+xml" = imageViewer;
-            "image/x-icon" = imageViewer;
 
             # Video files
             "video/mp4" = videoPlayer;
