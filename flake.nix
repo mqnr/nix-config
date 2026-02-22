@@ -38,16 +38,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    niri = {
-      url = "github:sodiboo/niri-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    dankMaterialShell = {
-      url = "github:AvengeMedia/DankMaterialShell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     emacs-overlay = {
       url = "github:nix-community/emacs-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -121,27 +111,9 @@
           inherit system specialArgs;
           modules = sharedModules host ++ [
             ./modules/linux
-            inputs.niri.nixosModules.niri
             inputs.home-manager.nixosModules.home-manager
 
-            (
-              { pkgs, ... }:
-              {
-                programs.niri = {
-                  enable = true;
-                  package = pkgs.niri;
-                };
-              }
-            )
-
             inputs.agenix.nixosModules.default
-
-            {
-              home-manager.sharedModules = [
-                inputs.dankMaterialShell.homeModules.dank-material-shell
-                inputs.dankMaterialShell.homeModules.niri
-              ];
-            }
           ];
         };
 
