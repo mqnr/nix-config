@@ -13,6 +13,7 @@
           pkgs.discord # Messaging platform
           pkgs.discord-ptb # Public Test Build
           pkgs.discord-canary # Bleeding edge
+          pkgs.vesktop # Alternate Discord client
           pkgs.thunderbird # Email client
 
           # Media and graphics
@@ -22,6 +23,8 @@
 
           # Downloading and torrenting
           pkgs.qbittorrent # Torrent client
+
+          pkgs.bitwarden-desktop # Password manager
 
           # Browsers
           pkgs.brave # Privacy-focused Chromium-based browser
