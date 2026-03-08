@@ -13,7 +13,16 @@
         "......" = "cd ../../../../..";
       };
 
-      programs.starship.enable = true;
+      programs.starship = {
+        enable = true;
+        settings = {
+          cmd_duration.min_time = 30000; # 30 seconds
+          add_newline = false;
+          status.disabled = false;
+          directory.truncation_length = 4;
+          git_branch.truncation_length = 24;
+        };
+      };
     }
     (lib.mkIf config.isPC {
       home.shellAliases = {

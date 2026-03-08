@@ -20,7 +20,7 @@
       persistent-apps = [
         { app = "/Applications/Brave Browser.app"; }
         { app = "/Applications/Ghostty.app"; }
-        { app = "/Applications/Vesktop.app"; }
+        { app = "/Applications/Discord.app"; }
         { app = "/Applications/Thunderbird.app"; }
         { app = "/System/Applications/Notes.app"; }
       ];
