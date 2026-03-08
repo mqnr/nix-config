@@ -8,7 +8,7 @@ lib.mkIf config.isPC {
 
         settings = {
           user = {
-            name = "mzamorano";
+            name = "Martín Zamorano";
             email = "martin@mzamorano.com";
           };
 
