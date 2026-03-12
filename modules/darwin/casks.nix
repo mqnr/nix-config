@@ -15,5 +15,6 @@
     "linearmouse"
     "obs"
     "whatsapp"
+    "spotify"
   ];
 }
