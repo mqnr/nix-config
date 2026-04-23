@@ -17,6 +17,7 @@
     taps = {
       "homebrew/homebrew-core" = inputs.homebrew-core;
       "homebrew/homebrew-cask" = inputs.homebrew-cask;
+      "jimeh/homebrew-emacs-builds" = inputs.homebrew-emacs-builds;
     };
     mutableTaps = false;
   };

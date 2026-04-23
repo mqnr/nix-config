@@ -156,6 +156,22 @@
         "type": "github"
       }
     },
+    "homebrew-emacs-builds": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1776471466,
+        "narHash": "sha256-V2vI4E8Gh4pLafjUGEWJ9iOpVn45YvcYLtNPUiXdLxs=",
+        "owner": "jimeh",
+        "repo": "homebrew-emacs-builds",
+        "rev": "c4f7674c0619a1cf44110977feea991f3ca5cf96",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jimeh",
+        "repo": "homebrew-emacs-builds",
+        "type": "github"
+      }
+    },
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
@@ -233,6 +249,7 @@
         "home-manager": "home-manager_2",
         "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",
+        "homebrew-emacs-builds": "homebrew-emacs-builds",
         "nix-darwin": "nix-darwin",
         "nix-homebrew": "nix-homebrew",
         "nixpkgs": "nixpkgs",

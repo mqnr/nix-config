@@ -33,6 +33,11 @@
       flake = false;
     };
 
+    homebrew-emacs-builds = {
+      url = "github:jimeh/homebrew-emacs-builds";
+      flake = false;
+    };
+
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
