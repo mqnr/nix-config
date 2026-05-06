@@ -41,7 +41,10 @@
           pkgs.jetbrains.rider # .NET development
           pkgs.postman # You know what Postman is
         ]
-        ++ lib.optionals (config.hostname == "tigris") [ pkgs.librewolf ];
+        ++ lib.optionals (config.hostname == "tigris") [ pkgs.librewolf ]
+        ++ [
+          pkgs.unar # The Unarchiver
+        ];
     }
   ];
 }
