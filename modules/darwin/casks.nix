@@ -16,5 +16,6 @@
     "obs"
     "whatsapp"
     "spotify"
+    "intellij-idea"
   ];
 }
