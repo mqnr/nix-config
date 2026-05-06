@@ -15,6 +15,7 @@ lib.mkIf config.isPC {
         pkgs.aporetic
         pkgs.nerd-fonts.jetbrains-mono
         pkgs.intel-one-mono
+        pkgs.inter
       ];
     }
 
