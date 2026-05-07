@@ -8,9 +8,8 @@
 lib.mkIf config.isPC {
   home-manager.sharedModules = [
     {
-      programs.vscode = {
+      programs.vscodium = {
         enable = true;
-        package = pkgs.vscodium;
         profiles.default.extensions = [
           pkgs.vscode-extensions.mkhl.direnv
           pkgs.vscode-extensions.rust-lang.rust-analyzer
