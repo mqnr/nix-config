@@ -276,13 +276,13 @@
       "locked": {
         "lastModified": 1771798518,
         "narHash": "sha256-Qx7z/pi9WZaWgoQa/nAfWMfe3VXJaaHxoKNRVLscm1A=",
-        "owner": "mqnr",
+        "owner": "mzacuna",
         "repo": "tangent",
         "rev": "0b0c98a578e799359ffdf1b8a366faed964de3bb",
         "type": "github"
       },
       "original": {
-        "owner": "mqnr",
+        "owner": "mzacuna",
         "repo": "tangent",
         "type": "github"
       }

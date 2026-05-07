@@ -49,7 +49,7 @@
     };
 
     tangent = {
-      url = "github:mqnr/tangent";
+      url = "github:mzacuna/tangent";
       flake = false;
     };
   };

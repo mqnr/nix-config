@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: t; -*-
 
-(defun mqnr/apply-theme (theme)
+(defun mzacuna/apply-theme (theme)
   "Disable active themes and load THEME (a symbol).
 When called interactively, prompt for THEME with completion."
   (interactive
@@ -10,11 +10,11 @@ When called interactively, prompt for THEME with completion."
   (mapc #'disable-theme custom-enabled-themes)
   (load-theme theme t))
 
-(defun mqnr/reload-theme-from-default-json ()
+(defun mzacuna/reload-theme-from-default-json ()
   (interactive)
-  (mqnr/load-theme-from-json (expand-file-name "theme.json" user-emacs-directory)))
+  (mzacuna/load-theme-from-json (expand-file-name "theme.json" user-emacs-directory)))
 
-(defun mqnr/load-theme-from-json (file)
+(defun mzacuna/load-theme-from-json (file)
   "Read JSON FILE and apply settings. Do nothing if FILE does not exist."
   (when (file-exists-p file)
     (require 'json)
@@ -27,7 +27,7 @@ When called interactively, prompt for THEME with completion."
               (value (cdr pair)))
           (pcase key
             ('theme
-             (mqnr/apply-theme (intern value)))
+             (mzacuna/apply-theme (intern value)))
             (_
              (set-frame-parameter nil key value)
              (assq-delete-all key default-frame-alist)
@@ -50,7 +50,7 @@ When called interactively, prompt for THEME with completion."
   (pixel-scroll-precision-mode t)
   (dolist (h '(term-mode-hook shell-mode-hook eshell-mode-hook help-mode-hook compilation-mode-hook))
     (add-hook h (lambda () (display-line-numbers-mode 0))))
-  (mqnr/load-theme-from-json (expand-file-name "theme.json" user-emacs-directory)))
+  (mzacuna/load-theme-from-json (expand-file-name "theme.json" user-emacs-directory)))
 
 ;; Editing
 (use-package emacs
@@ -64,7 +64,7 @@ When called interactively, prompt for THEME with completion."
   (make-directory "~/.emacs.d/backups" t)
   (make-directory "~/.emacs.d/auto-saves" t)
   (setq backup-directory-alist '((".*" . "~/.emacs.d/backups")
-	auto-save-file-name-transforms `((".*" "~/.emacs.d/auto-saves/" t)))))
+	                             auto-save-file-name-transforms `((".*" "~/.emacs.d/auto-saves/" t)))))
 
 (use-package emacs
   :init
@@ -100,7 +100,7 @@ When called interactively, prompt for THEME with completion."
   (indent-bars-treesit-support t)
   (indent-bars-no-descend-lists t)
   (indent-bars-treesit-scope '((python function_definition class_definition for_statement
-				       if_statement with_statement while_statement)))
+				                       if_statement with_statement while_statement)))
   (indent-bars-treesit-ignore-blank-lines-types '("module")))
 
 (use-package magit
@@ -189,7 +189,7 @@ When called interactively, prompt for THEME with completion."
 (use-package marginalia
   :ensure t
   :bind (:map minibuffer-local-map
-         ("M-A" . marginalia-cycle))
+              ("M-A" . marginalia-cycle))
   :init
   (marginalia-mode))
 
@@ -325,7 +325,7 @@ When called interactively, prompt for THEME with completion."
    '("\"" . meow-inner-of-thing)
    '(":" . meow-bounds-of-thing)
 
-   ; editing
+                                        ; editing
    '("t" . meow-clipboard-kill)
    '("s" . meow-change)
    '("S" . meow-replace)
@@ -349,14 +349,14 @@ When called interactively, prompt for THEME with completion."
    '("[" . indent-rigidly-left-to-tab-stop)
    '("]" . indent-rigidly-right-to-tab-stop)
 
-   ; prefix k
+                                        ; prefix k
    '("ks" . meow-comment)
    '("kv" . meow-start-kmacro-or-insert-counter)
    '("kc" . meow-start-kmacro)
    '("kd" . meow-end-or-call-kmacro)
    ;; ...etc
 
-   ; prefix i
+                                        ; prefix i
    '("is" . save-buffer)
    '("iS" . save-some-buffers)
    '("it" . meow-query-replace-regexp)
@@ -365,7 +365,7 @@ When called interactively, prompt for THEME with completion."
    '("ik" . kill-buffer)
    '("if" . find-file)
 
-   ; ignore escape
+                                        ; ignore escape
    '("<escape>" . ignore))
   :init
   (meow-global-mode 1))
@@ -381,7 +381,7 @@ When called interactively, prompt for THEME with completion."
   (prog-mode . (lambda ()
                  (add-hook 'before-save-hook #'eglot-format nil t))))
 
-(defun mqnr/eglot-setup (modes server-command)
+(defun mzacuna/eglot-setup (modes server-command)
   "Hook Eglot into MODES (symbol or list of symbols) and register SERVER-COMMAND.
 SERVER-COMMAND can be a list (\"jdtls\" …) or a lambda returning such a list."
   (let* ((modes (if (listp modes) modes (list modes)))
@@ -400,15 +400,15 @@ SERVER-COMMAND can be a list (\"jdtls\" …) or a lambda returning such a list."
   :ensure t
   :mode "\\.nix\\'"
   :config
-  (mqnr/eglot-setup 'nix-ts-mode '("nixd")))
+  (mzacuna/eglot-setup 'nix-ts-mode '("nixd")))
 
 ;; Python
 (use-package python-ts-mode
   :mode "\\.py\\'"
   :config
-  (mqnr/eglot-setup 'python-ts-mode '("basedpyright-langserver" "--stdio")))
+  (mzacuna/eglot-setup 'python-ts-mode '("basedpyright-langserver" "--stdio")))
 
-(defun mqnr/eglot-setup (modes server-command)
+(defun mzacuna/eglot-setup (modes server-command)
   "Hook Eglot into MODES (symbol or list of symbols) and register SERVER-COMMAND.
 SERVER-COMMAND can be a list (\"jdtls\" …) or a lambda returning such a list."
   (let* ((modes (if (listp modes) modes (list modes)))
