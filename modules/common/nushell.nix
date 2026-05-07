@@ -8,8 +8,5 @@ lib.mkIf config.isPC {
         configFile.source = ./config.nu;
       };
     }
-    (lib.mkIf config.isDarwin {
-      programs.nushell.envFile.source = ./env.nu;
-    })
   ];
 }

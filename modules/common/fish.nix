@@ -1,16 +1,21 @@
 { config, lib, ... }:
 
+# Fish is enabled at both layers on purpose:
+# - System level: needed on macOS, otherwise fish in Ghostty doesn't see any
+#   Nix paths on PATH.
+# - HM level: home-manager's fish integrations (direnv, starship, aliases)
+#   only land in ~/.config/fish/config.fish when HM's fish is enabled.
 lib.mkIf config.isPC {
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = ''
+      set fish_greeting # Disable greeting
+    '';
+  };
+
   home-manager.sharedModules = [
     {
-      programs.fish = {
-        enable = true;
-
-        interactiveShellInit = ''
-          set fish_greeting # Disable greeting
-          direnv hook fish | source
-        '';
-      };
+      programs.fish.enable = true;
     }
   ];
 }
